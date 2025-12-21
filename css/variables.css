@@ -1,0 +1,131 @@
+/* ====================================
+   TROPICOR FOODS - GLOBAL DESIGN SYSTEM
+   ==================================== */
+
+/* ============ COLOR PALETTE ============ */
+:root {
+  /* Primary Colors */
+  --color-primary: #28A398;
+  --color-primary-light: #3BC4B6;
+  --color-primary-lighter: #5DD4C7;
+  --color-primary-dark: #1F8277;
+  --color-primary-darker: #166156;
+  
+  /* Secondary Colors */
+  --color-secondary: #FFFFFF;
+  --color-secondary-dark: #F8F9FA;
+  --color-secondary-darker: #E9ECEF;
+  
+  /* Neutral Colors */
+  --color-text-primary: #212529;
+  --color-text-secondary: #6C757D;
+  --color-text-light: #ADB5BD;
+  --color-text-white: #FFFFFF;
+  
+  /* Background Colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-bg-accent: #28A398;
+  --color-bg-dark: #212529;
+  
+  /* Border Colors */
+  --color-border-light: #DEE2E6;
+  --color-border-medium: #CED4DA;
+  --color-border-dark: #ADB5BD;
+  
+  /* State Colors */
+  --color-success: #28A745;
+  --color-warning: #FFC107;
+  --color-error: #DC3545;
+  --color-info: #17A2B8;
+  
+  /* ============ TYPOGRAPHY ============ */
+  /* Font Families */
+  --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 1.875rem;    /* 30px */
+  --font-size-4xl: 2.25rem;     /* 36px */
+  --font-size-5xl: 3rem;        /* 48px */
+  --font-size-6xl: 3.75rem;     /* 60px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+  
+  /* ============ SPACING ============ */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 6rem;      /* 96px */
+  --space-5xl: 8rem;      /* 128px */
+  
+  /* ============ LAYOUT ============ */
+  /* Container Widths */
+  --container-xs: 20rem;      /* 320px */
+  --container-sm: 36rem;      /* 576px */
+  --container-md: 48rem;      /* 768px */
+  --container-lg: 64rem;      /* 1024px */
+  --container-xl: 80rem;      /* 1280px */
+  --container-2xl: 96rem;     /* 1536px */
+  
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* ============ BORDERS ============ */
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+  
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.5rem;    /* 8px */
+  --border-radius-lg: 0.75rem;   /* 12px */
+  --border-radius-xl: 1rem;      /* 16px */
+  --border-radius-full: 9999px;
+  
+  /* ============ SHADOWS ============ */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* ============ TRANSITIONS ============ */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  /* ============ Z-INDEX SCALE ============ */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
