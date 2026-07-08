@@ -1,0 +1,165 @@
+/* ==========================================================
+   TROPICOR FOODS — Google Ads landing page
+   Single goal: enquiry. No exits, no distractions.
+   ========================================================== */
+
+/* ---------- LP HEADER (minimal, no nav) ---------- */
+.lp-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.lp-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+}
+.lp-header .header-logo { height: 2.25rem; }
+.lp-header-actions { display: flex; align-items: center; gap: 1.5rem; }
+.lp-header-phone {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  transition: color 0.25s;
+}
+.lp-header-phone:hover { color: var(--teal-deep); }
+.lp-header .btn { padding: 0.7rem 1.4rem; }
+
+@media (max-width: 39.99em) {
+  .lp-header-phone { display: none; }
+}
+
+/* ---------- LP HERO ---------- */
+.lp-hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+}
+.lp-hero-media { position: absolute; inset: 0; z-index: -2; background: var(--ink); }
+.lp-hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.lp-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(12, 22, 19, 0.92) 30%, rgba(12, 22, 19, 0.55) 100%);
+}
+
+.lp-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+.lp-hero h1 { max-width: 16ch; }
+.lp-hero .lp-sub {
+  max-width: 48ch;
+  margin-top: 1.5rem;
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+.lp-hero-points {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.lp-hero-points li {
+  padding-block: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 63.99em) {
+  .lp-hero-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- LEAD FORM CARD ---------- */
+.lead-card {
+  background: var(--white);
+  color: var(--text);
+  border-radius: var(--r-xl);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.45);
+}
+.lead-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.lead-card .lead-note {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.lead-form { display: grid; gap: 1.1rem; }
+.lead-form .btn { width: 100%; }
+.lead-form .form-note { font-size: var(--fs-meta); color: var(--muted); text-align: center; }
+
+.lead-alt {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: var(--fs-small);
+}
+.lead-alt a { font-weight: 600; color: var(--teal-deep); }
+
+/* ---------- LP TRUST ---------- */
+.lp-trust { background: var(--white); border-bottom: 1px solid var(--line); }
+.lp-trust .trust-inner { padding-block: 1.5rem; }
+
+/* ---------- LP SECTIONS ---------- */
+.lp-section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+
+.lp-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.lp-step { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.lp-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 480;
+  margin-bottom: 0.6rem;
+}
+.lp-step p { font-size: var(--fs-small); color: var(--muted); }
+@media (max-width: 63.99em) { .lp-steps { grid-template-columns: 1fr; } }
+
+/* ---------- STICKY MOBILE CTA ---------- */
+/* On mobile the sticky bar owns the WhatsApp action — hide the FAB */
+@media (max-width: 63.99em) {
+  .wa-fab { display: none; }
+}
+
+.lp-sticky-cta {
+  display: none;
+}
+@media (max-width: 63.99em) {
+  .lp-sticky-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 200;
+    background: var(--line);
+  }
+  .lp-sticky-cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.05rem;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    background: var(--teal);
+    color: #fff;
+  }
+  .lp-sticky-cta a.alt { background: var(--ink); }
+  body { padding-bottom: 3.6rem; }
+}

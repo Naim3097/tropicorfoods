@@ -3,212 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Tropicor Foods</title>
-  
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap">
-  
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Common Styles -->
-  <link rel="stylesheet" href="css/common.css">
-  
-  <!-- Page Specific Styles -->
-  <link rel="stylesheet" href="css/contact.css">
+
+  <title>Contact Tropicor Foods | Enquiries, Quotes & Sourcing Requests</title>
+  <meta name="description" content="Contact Tropicor Foods in Klang, Selangor, Malaysia. Send a sourcing request, ask for a quote, or WhatsApp our sales team. We respond within one working day.">
+  <link rel="canonical" href="https://www.tropicorfoods.com/contact.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tropicor Foods">
+  <meta property="og:title" content="Contact Tropicor Foods | Enquiries, Quotes & Sourcing Requests">
+  <meta property="og:description" content="Contact Tropicor Foods in Klang, Selangor, Malaysia. Send a sourcing request, ask for a quote, or WhatsApp our sales team. We respond within one working day.">
+  <meta property="og:url" content="https://www.tropicorfoods.com/contact.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+
+  <!-- GA4 — replace G-XXXXXXXXXX with the live Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Tropicor Foods",
+  "url": "https://www.tropicorfoods.com/contact.html"
+}
+  </script>
 </head>
 <body>
-  
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo-container">
-        <img src="assets/Homepage/Tropicorfoods Header Logo.png" alt="Tropicor" class="logo">
-      </div>
-      
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
 
-      <nav>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+  <header class="site-header site-header--solid">
+    <div class="container">
+      <a href="index.html" aria-label="Tropicor Foods — home">
+        <img src="assets/Homepage/Tropicorfoods Footer Logo.png" alt="Tropicor Foods" class="header-logo header-logo--light">
+        <img src="assets/Homepage/Tropicorfoods Header Logo.png" alt="Tropicor Foods" class="header-logo header-logo--dark">
+      </a>
+
+      <nav aria-label="Main">
+        <ul class="site-nav" id="site-nav">
+          <li class="nav-brand" aria-hidden="true">
+            <img src="assets/Homepage/Tropicorfoods Footer Logo.png" alt="" class="nav-logo">
+          </li>
           <li>
-            <a href="#" class="nav-link" onclick="return false;">
-              Products and Services
-              <span class="dropdown-icon">▼</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="seasonings.html">Seasonings & Pre-Mix</a></li>
+            <a href="products.html" class="nav-link">Products</a>
+            <ul class="nav-drop">
+              <li><a href="seasonings.html">Seasonings &amp; Pre-Mix</a></li>
               <li><a href="fruit-products.html">Fruit Products</a></li>
               <li><a href="food-ingredients.html">Food Ingredients</a></li>
-              <li><a href="customisation-oem.html">Customisation & OEM</a></li>
+              <li><a href="customisation-oem.html">Customisation &amp; OEM</a></li>
             </ul>
           </li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+          <li>
+            <a href="index.html#industries" class="nav-link">Solutions</a>
+            <ul class="nav-drop">
+              <li><a href="solutions/oem-private-label-food-manufacturing.html">OEM &amp; Private Label</a></li>
+              <li><a href="solutions/seasonings-for-restaurants.html">Restaurants &amp; HORECA</a></li>
+              <li><a href="solutions/ingredients-for-food-manufacturers.html">Food Manufacturers</a></li>
+              <li><a href="solutions/fruit-ingredients-for-beverage-manufacturers.html">Beverage Manufacturers</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-extra">
+            <a href="contact.html" class="btn btn--primary">Request a Quote</a>
+            <div class="nav-contact">
+              <a href="tel:+60122556701">+60 12-255 6701</a>
+              <a href="mailto:enquiries@tropicorfoods.com">enquiries@tropicorfoods.com</a>
+            </div>
+          </li>
         </ul>
       </nav>
-      
-      <div class="header-contact">
-        <a href="mailto:customerservice@tropicorfoods.com" class="contact-email">
-          <i class="fas fa-envelope email-icon"></i>
-          customerservice@tropicorfoods.com
-        </a>
-        <div class="contact-phone">+60122556701</div>
+
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn--primary" data-track="quote_cta_click">Request a Quote</a>
       </div>
+
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
-  
-  <!-- Hero Section -->
-  <section class="contact-hero">
-    <div class="contact-hero-content">
-      <h1 class="contact-hero-title">Send Us A Message</h1>
-      <p class="contact-hero-subtitle">Have a question or sourcing request?</p>
-      <p class="contact-hero-text">Our dedicated team is here to serve you! Fill out the form below, and we'll get back to you faster than you can say 'flavor-packed!'</p>
-    </div>
-  </section>
 
-  <!-- Contact Form Section -->
-  <section class="contact-form-section">
-    <div class="contact-form-container">
-      <h2 class="contact-form-title">Question & Sourcing Request</h2>
-      <form>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Name/Company</label>
-            <input type="text" class="form-input" placeholder="Name">
+  <main>
+    <section class="page-hero band-texture--light">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="sep">/</span><span>Contact</span>
+        </nav>
+        <h1 class="t-hero">Let’s talk <em>flavour</em>.</h1>
+        <p class="t-lead">Question, quote or sourcing request? Fill in the form or WhatsApp us directly, and we’ll get back to you within one working day.</p>
+      </div>
+    </section>
+
+    <section class="section section--white" id="enquiry">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <h2 class="t-title mb-2">Send an enquiry</h2>
+          <!-- Web3Forms: replace YOUR-WEB3FORMS-ACCESS-KEY with the real access key (free at web3forms.com) -->
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-track-form="contact_enquiry">
+            <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
+            <input type="hidden" name="subject" value="Website enquiry — tropicorfoods.com">
+            <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+            <div class="field">
+              <label for="cf-name">Name / Company</label>
+              <input id="cf-name" type="text" name="name" required placeholder="Your name or company">
+            </div>
+            <div class="field">
+              <label for="cf-phone">Phone</label>
+              <input id="cf-phone" type="tel" name="phone" required placeholder="+60">
+            </div>
+            <div class="field field--full">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" type="email" name="email" required placeholder="you@company.com">
+            </div>
+            <div class="field field--full">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required placeholder="Tell us the product, application and volumes you have in mind"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg">Send Enquiry</button>
+            <p class="form-note">Prefer to talk? WhatsApp our sales team at +60 12-255 6701. It is usually the fastest way to reach us.</p>
+          </form>
+        </div>
+        <div class="contact-details reveal reveal-d1">
+          <div class="contact-detail-row">
+            <h3>HQ &amp; Production Center</h3>
+            <p>No.36, Lorong Sungai Puloh 1A/KU6, Taman Teknologi Gemilang, Kaw Perindustrian Sg. Puloh, 42100 Klang, Selangor, Malaysia</p>
           </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="text" class="form-input" placeholder="Phone">
+          <div class="contact-detail-row">
+            <h3>Processing &amp; Operation Site</h3>
+            <p>11, Jalan Tago 12, Taman Perindustrian Tago, Sri Damansara, 52200 Kuala Lumpur, Malaysia</p>
+          </div>
+          <div class="contact-detail-row">
+            <h3>Email</h3>
+            <p><a href="mailto:customerservice@tropicorfoods.com">customerservice@tropicorfoods.com</a><br>
+            <a href="mailto:enquiries@tropicorfoods.com">enquiries@tropicorfoods.com</a></p>
+          </div>
+          <div class="contact-detail-row">
+            <h3>Phone &amp; WhatsApp</h3>
+            <p>Customer service: <a href="tel:+60122556701">+60 12-255 6701</a><br>
+            Admin: <a href="tel:+60163809660">+60 16-380 9660</a><br>
+            WhatsApp sales: <a href="https://wa.me/60122556701?text=Hello%20Tropicor%20Foods%2C%20I'd%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">+60 12-255 6701</a></p>
           </div>
         </div>
-        <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="Email">
-        </div>
-        <div class="form-group" style="margin-bottom: 24px;">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="Message"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Submit & We'll Get Back Soon!</button>
-      </form>
-    </div>
-    <div class="contact-image-container">
-      <img src="assets/Contact Us/Form Card Image Asset.jpg" alt="Fresh Ingredients" class="contact-side-image">
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Contact Info Section -->
-  <section class="contact-info-section">
-    <div class="info-header">
-      <h2 class="info-title">Stay Connected, Stay Flavorful.</h2>
-      <p class="info-subtitle">Whether it's a quick question or a deep dive into our world of ingredients, here's how you can reach us 24/7:</p>
-    </div>
-    <div class="info-grid">
-      <!-- Card 1: HQ -->
-      <div class="info-card">
-        <div class="info-icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
-        <h3 class="info-card-title">HQ & Production Center</h3>
-        <p class="info-card-text">No.36, Lorong Sungai Puloh 1A/KU6, Taman Teknologi Gemilang, Kaw Perindustrian Sg. Puloh, 42100 Klang, Selangor, Malaysia</p>
-      </div>
-      <!-- Card 2: Processing -->
-      <div class="info-card">
-        <div class="info-icon-wrapper"><i class="fas fa-map-pin"></i></div>
-        <h3 class="info-card-title">Processing & Operation Site</h3>
-        <p class="info-card-text">11, Jalan Tago 12, Taman Perindustrian Tago, Sri Damansara, 52200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia</p>
-      </div>
-      <!-- Card 3: Email -->
-      <div class="info-card">
-        <div class="info-icon-wrapper"><i class="far fa-envelope"></i></div>
-        <h3 class="info-card-title">Email Support</h3>
-        <div class="info-card-text">
-          <p><a href="mailto:customerservice@tropicorfoods.com">customerservice<br>@tropicorfoods.com</a></p>
-          <br>
-          <p><a href="mailto:enquiries@tropicorfoods.com">enquiries<br>@tropicorfoods.com</a></p>
+    <section class="section" style="padding-top: clamp(2.5rem, 5vw, 4rem);">
+      <div class="container">
+        <div class="map-frame reveal">
+          <iframe
+            title="Tropicor Foods HQ — Klang, Selangor"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Lorong+Sungai+Puloh+1A%2FKU6,+Taman+Teknologi+Gemilang,+42100+Klang,+Selangor,+Malaysia&t=&z=13&ie=UTF8&iwloc=&output=embed">
+          </iframe>
         </div>
       </div>
-      <!-- Card 4: Phone -->
-      <div class="info-card">
-        <div class="info-icon-wrapper"><i class="fas fa-phone-alt"></i></div>
-        <h3 class="info-card-title">Let's Talk</h3>
-        <div class="info-card-text">
-          <p>Phone (Customer Service):<br>+60 12-255 6701</p>
-          <p>Phone (Admin):<br>+60 16-300 9660</p>
-          <p>Whatsapp (Sales):<br><span class="phone-highlight">+60 12-255 6701</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Map Section -->
-  <section class="map-section">
-    <iframe 
-      width="100%" 
-      height="100%" 
-      frameborder="0" 
-      scrolling="no" 
-      marginheight="0" 
-      marginwidth="0" 
-      src="https://maps.google.com/maps?q=Thermaltech+Solutions+Sdn.+Bhd.+Kawasan+Perindustrian+31,+Lorong+Sungai+Puloh+1A%2F+KU6+Jalan+Sungai+Puloh,+Taman+Teknologi+Gemilang,+42100+Klang,+Selangor&t=&z=13&ie=UTF8&iwloc=&output=embed">
-    </iframe>
-  </section>
-  
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-content">
-        <!-- Brand Column -->
-        <div class="footer-brand">
-          <img src="assets/Homepage/Tropicorfoods Footer Logo.png" alt="Tropicor" class="footer-logo">
-          <p class="footer-description">
-            We supply high-quality ingredients, including spices, flavors, fruits, extracts, and specialty functional items, for local and international markets.
-          </p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/Homepage/Tropicorfoods Footer Logo.png" alt="Tropicor Foods" class="footer-logo">
+          <p class="footer-desc">Halal-certified food ingredient and seasoning manufacturer in Klang, Selangor, Malaysia. Seasonings, premixes, fruit products and OEM manufacturing for local and international markets.</p>
           <div class="footer-social">
-            <a href="#" class="social-icon" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.5 1.5-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.8.31-1.47.72-2.14 1.4A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.47 1.4 2.14.67.67 1.34 1.09 2.14 1.4.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.8-.31 1.47-.72 2.14-1.4.67-.67 1.09-1.34 1.4-2.14.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.4-2.14A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46ZM5.34 7.43a2.06 2.06 0 1 1 2.06-2.06 2.06 2.06 0 0 1-2.06 2.06Zm1.78 13.02H3.56V9h3.56ZM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.76 1.76 0 0 0 24 22.27V1.73A1.76 1.76 0 0 0 22.22 0Z"/></svg></a>
           </div>
         </div>
-        
-        <!-- Products and Services Column -->
-        <div class="footer-column">
-          <h3 class="footer-column-title">Products and Services</h3>
-          <ul class="footer-links">
-            <li><a href="#" class="footer-link">Seasonings and Pre-mix</a></li>
-            <li><a href="#" class="footer-link">Fruits</a></li>
-            <li><a href="#" class="footer-link">Customisation & OEM</a></li>
-            <li><a href="#" class="footer-link">Food Ingredients</a></li>
+        <div class="footer-col">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="seasonings.html">Seasonings &amp; Pre-Mix</a></li>
+            <li><a href="fruit-products.html">Fruit Products</a></li>
+            <li><a href="food-ingredients.html">Food Ingredients</a></li>
+            <li><a href="customisation-oem.html">Customisation &amp; OEM</a></li>
           </ul>
         </div>
-        
-        <!-- Learn More Column -->
-        <div class="footer-column">
-          <h3 class="footer-column-title">Learn More</h3>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about.html" class="footer-link">About Us</a></li>
-            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+        <div class="footer-col">
+          <h3>Solutions</h3>
+          <ul>
+            <li><a href="solutions/oem-private-label-food-manufacturing.html">OEM &amp; Private Label</a></li>
+            <li><a href="solutions/seasonings-for-restaurants.html">Restaurants &amp; HORECA</a></li>
+            <li><a href="solutions/ingredients-for-food-manufacturers.html">Food Manufacturers</a></li>
+            <li><a href="solutions/fruit-ingredients-for-beverage-manufacturers.html">Beverage Manufacturers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="https://wa.me/60122556701" target="_blank" rel="noopener">WhatsApp Sales</a></li>
           </ul>
         </div>
       </div>
-      
-      <!-- Copyright Bar -->
       <div class="footer-bottom">
-        <p class="footer-copyright">
-          Copyright © 2024 Tropicor Foods All rights reserved. Powered by <a href="#">Nexova Digital</a>.
-        </p>
+        <p>&copy; <span data-year>2026</span> Tropicor Foods. All rights reserved. Halal &middot; GMP &middot; MESTI certified.</p>
+        <p>Powered by <a href="https://nexovadigital.com" target="_blank" rel="noopener">Nexova Digital</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="js/common.js"></script>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/60122556701?text=Hello%20Tropicor%20Foods%2C%20I%20found%20you%20through%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry."
+     class="wa-fab" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" data-track-label="floating_button">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,5 @@
+# Raw source media (1.5GB masters) — web-ready versions live in assets/videos/
+manual assets/
+
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json

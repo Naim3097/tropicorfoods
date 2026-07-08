@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="HACCP certified">
+  <defs>
+    <path id="arcTop" d="M 100,100 m -72,0 a 72,72 0 1,1 144,0"/>
+    <path id="arcBottom" d="M 100,100 m -72,0 a 72,72 0 1,0 144,0"/>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="#1B4F72"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="100" cy="100" r="56" fill="#FFFFFF"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" letter-spacing="2.5">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">FOOD SAFETY SYSTEM</textPath>
+  </text>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" letter-spacing="2.5">
+    <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">CERTIFIED</textPath>
+  </text>
+  <text x="100" y="94" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#1B4F72" text-anchor="middle">HACCP</text>
+  <rect x="62" y="104" width="76" height="2.5" fill="#28A398"/>
+  <text x="100" y="122" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#1B4F72" text-anchor="middle" letter-spacing="1.5">COMPLIANT</text>
+</svg>
