@@ -56,7 +56,13 @@
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
 }
-.lp-hero h1 { max-width: 16ch; }
+.lp-hero h1 {
+  max-width: 16ch;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
 .lp-hero .lp-sub {
   max-width: 48ch;
   margin-top: 1.5rem;

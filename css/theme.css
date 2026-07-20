@@ -88,7 +88,17 @@ h1, h2, h3, .display {
   color: inherit;
 }
 
-.t-hero     { font-size: var(--fs-hero); }
+/* Hero headlines: clean grotesque sans for a professional, industrial B2B feel.
+   Section headings (.t-display / .t-title) stay Fraunces serif. */
+.t-hero {
+  font-family: var(--font-body);
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+.t-hero em { font-style: normal; font-weight: 700; }
+
 .t-display  { font-size: var(--fs-display); }
 .t-title    { font-size: var(--fs-title); }
 .t-subtitle { font-size: var(--fs-subtitle); line-height: 1.25; }
@@ -120,6 +130,16 @@ em, .accent-italic {
   max-width: var(--max-w);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+/* Cards that ARE the container (split / solution-intro): drop the
+   container's inline padding so edge-to-edge media bleeds to the card
+   edge, and recreate the gutter as outer width instead of padding. */
+.container.split,
+.container.solution-intro {
+  padding-inline: 0;
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--max-w) - 2 * var(--gutter));
 }
 
 .section { padding-block: var(--section-pad); }
@@ -334,10 +354,7 @@ em, .accent-italic {
     justify-content: flex-start;
     gap: 0;
     padding: 5.5rem var(--gutter) 2rem;
-    background-color: var(--ink);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='104' viewBox='0 0 96 104'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cellipse cx='28' cy='26' rx='24' ry='9' transform='rotate(-32 28 26)'/%3E%3Cellipse cx='68' cy='26' rx='24' ry='9' transform='rotate(32 68 26)'/%3E%3Cellipse cx='28' cy='78' rx='24' ry='9' transform='rotate(-32 28 78)'/%3E%3Cellipse cx='68' cy='78' rx='24' ry='9' transform='rotate(32 68 78)'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 96px 104px;
+    background: var(--ink);
     color: var(--text-on-dark);
     opacity: 0;
     visibility: hidden;
@@ -698,31 +715,6 @@ em, .accent-italic {
   .trust-fact { text-align: center; }
 }
 
-/* ============ TEXTURE BAND (brand leaf pattern) ============
-   A seamless tiling SVG leaf motif — covers any viewport evenly,
-   unlike the old cropped JPG which faded out on one side. */
-.band-texture {
-  position: relative;
-  isolation: isolate;
-  color: #fff;
-  background-color: var(--teal-dark);
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='104' viewBox='0 0 96 104'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cellipse cx='28' cy='26' rx='24' ry='9' transform='rotate(-32 28 26)'/%3E%3Cellipse cx='68' cy='26' rx='24' ry='9' transform='rotate(32 68 26)'/%3E%3Cellipse cx='28' cy='78' rx='24' ry='9' transform='rotate(-32 28 78)'/%3E%3Cellipse cx='68' cy='78' rx='24' ry='9' transform='rotate(32 68 78)'/%3E%3C/g%3E%3C/svg%3E"),
-    linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 55%, var(--teal) 100%);
-  background-repeat: repeat, no-repeat;
-  background-size: 96px 104px, cover;
-}
-.band-texture .t-lead, .band-texture p { color: rgba(255, 255, 255, 0.85); }
-
-/* Light variant: whisper of the leaf pattern under cream */
-.band-texture--light {
-  background-color: var(--paper);
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='104' viewBox='0 0 96 104'%3E%3Cg fill='%2328A398' fill-opacity='0.055'%3E%3Cellipse cx='28' cy='26' rx='24' ry='9' transform='rotate(-32 28 26)'/%3E%3Cellipse cx='68' cy='26' rx='24' ry='9' transform='rotate(32 68 26)'/%3E%3Cellipse cx='28' cy='78' rx='24' ry='9' transform='rotate(-32 28 78)'/%3E%3Cellipse cx='68' cy='78' rx='24' ry='9' transform='rotate(32 68 78)'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 96px 104px;
-}
-
 /* ============ SECTION FOOT (centered follow-on action) ============ */
 .section-foot {
   display: flex;
@@ -770,6 +762,21 @@ em, .accent-italic {
   height: 100%;
   object-fit: cover;
 }
+
+/* Brand-film intro: copy beside a right-sized video (not full-width) */
+.film-intro-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.film-intro-copy .t-display { max-width: 12ch; }
+.film-intro-copy .t-lead { margin-top: 1.25rem; max-width: 40ch; }
+.film-intro-copy .link-line { margin-top: 1.75rem; display: inline-block; }
+@media (max-width: 63.99em) {
+  .film-intro-grid { grid-template-columns: 1fr; }
+  .film-intro-copy { max-width: 42rem; }
+}
 /* Title row sits above the frame: Fraunces title + small meta */
 .film-head {
   display: flex;
@@ -792,7 +799,7 @@ em, .accent-italic {
   text-transform: uppercase;
   color: var(--muted);
 }
-.band-texture .film-sub { color: rgba(255, 255, 255, 0.7); }
+.section--dark .film-sub { color: rgba(255, 255, 255, 0.7); }
 
 .film-row {
   display: grid;

@@ -118,32 +118,106 @@
 @media (max-width: 63.99em) { .categories-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 39.99em) { .categories-grid { grid-template-columns: 1fr; } }
 
-/* ---------- FEEGOH (centered brand block, light band) ---------- */
+/* ---------- FEEGOH (asymmetric brand lockup) ---------- */
 .feegoh-head {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
-  text-align: center;
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
+.feegoh-brand {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  border-top: 4px solid #E2231A; /* FEEGOH brand red */
+  padding: clamp(2rem, 4vw, 3.25rem);
+  text-align: center;
+  box-shadow: 0 20px 48px -28px rgba(26, 43, 39, 0.22);
+}
 .feegoh-brand img {
-  height: clamp(4rem, 7vw, 6rem);
+  height: clamp(3.5rem, 6vw, 5rem);
   width: auto;
   margin-inline: auto;
-  border-radius: var(--r-sm);
-  box-shadow: 0 20px 44px -18px rgba(178, 24, 27, 0.35);
 }
-.feegoh-tag {
-  margin-top: 1.75rem;
-  font-family: var(--font-display);
-  font-size: var(--fs-title);
-  font-weight: 470;
-  line-height: 1.15;
-  max-width: 22ch;
+.feegoh-label {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.feegoh-intro { max-width: 58ch; }
-.feegoh-intro .t-lead { margin-top: 1.25rem; }
+.feegoh-intro .t-display { max-width: 18ch; }
+.feegoh-intro .t-lead { margin-top: 1.25rem; max-width: 52ch; }
 .feegoh-intro .btn { margin-top: 1.75rem; }
+
+@media (max-width: 63.99em) {
+  .feegoh-head { grid-template-columns: 1fr; }
+  .feegoh-brand { max-width: 22rem; }
+}
+
+/* ---------- FEEGOH UMAMITE (Marmite alternative highlight) ---------- */
+.umamite-card {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: stretch;
+  background: var(--teal-deep);
+  color: #fff;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: 0 24px 56px -30px rgba(22, 97, 86, 0.6);
+}
+.umamite-media { position: relative; min-height: 20rem; }
+.umamite-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.umamite-media .media-slot {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+.umamite-media .media-slot span { color: rgba(255, 255, 255, 0.75); }
+.umamite-copy { padding: clamp(2rem, 4vw, 3.5rem); align-self: center; }
+.umamite-copy .t-title { max-width: 18ch; }
+.umamite-copy p { margin-top: 1.25rem; color: rgba(255, 255, 255, 0.85); max-width: 52ch; }
+.umamite-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.umamite-contact span {
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.umamite-contact a { font-weight: 600; transition: color 0.25s; }
+.umamite-contact a:hover { color: #A8E6DE; }
+.umamite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+@media (max-width: 63.99em) {
+  .umamite-card { grid-template-columns: 1fr; }
+  .umamite-media { min-height: 0; aspect-ratio: 16 / 10; }
+}
+@media (max-width: 39.99em) {
+  .umamite-actions .btn { width: 100%; }
+}
 
 .feegoh-grid {
   display: grid;
@@ -207,11 +281,12 @@
   .puree-block .media-frame { min-height: 0; aspect-ratio: 16 / 10; }
 }
 
-/* ---------- STATS (on brand texture band) ---------- */
+/* ---------- STATS (clean, light) ---------- */
+.stats-head { margin-bottom: clamp(2rem, 4vw, 3rem); }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   text-align: left;
 }
 .stat-figure {
@@ -219,16 +294,17 @@
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 450;
   line-height: 1;
-  color: #fff;
+  color: var(--teal-deep);
 }
 .stat-name {
-  margin-top: 0.6rem;
+  margin-top: 0.7rem;
   font-size: var(--fs-small);
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
 }
-.stats-grid > div { border-top: 1px solid rgba(255, 255, 255, 0.32); padding-top: 1.5rem; }
+.stats-grid > div { border-top: 2px solid var(--teal); padding-top: 1.5rem; }
 
 @media (max-width: 63.99em) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 39.99em) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem 1.25rem; } }
 
 /* ---------- OEM BAND ---------- */
 .oem-band {

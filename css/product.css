@@ -21,7 +21,15 @@
   color: var(--teal-deep);
   margin-bottom: 1.25rem;
 }
-.product-hero h1 { max-width: 14ch; }
+/* Hero H1 uses the sans display treatment, consistent with every
+   other hero headline on the site (section headings stay Fraunces). */
+.product-hero h1 {
+  max-width: 16ch;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
 .product-hero .t-lead { margin-top: 1.5rem; max-width: 48ch; }
 
 .product-hero-actions {
@@ -60,6 +68,14 @@
 .product-hero-media img {
   width: 100%; height: 100%;
   object-fit: cover;
+}
+
+/* Packaging mockups: show the whole product on a soft ground */
+.shot-contain { background: var(--paper-deep); }
+.shot-contain img {
+  object-fit: contain !important;
+  padding: clamp(1rem, 5%, 2.5rem);
+  box-sizing: border-box;
 }
 
 @media (max-width: 63.99em) {
@@ -138,9 +154,7 @@
 
 /* ---------- ENQUIRY PANEL ---------- */
 .enquiry-panel {
-  background:
-    linear-gradient(rgba(20, 74, 66, 0.55), rgba(20, 74, 66, 0.55)),
-    url('../assets/Homepage/Homepage-Product and Services Cards Section Background.jpg') center / cover no-repeat;
+  background: var(--ink);
   color: #fff;
   border-radius: var(--r-xl);
   padding: clamp(2.5rem, 5vw, 4.5rem);
