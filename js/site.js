@@ -177,7 +177,14 @@
   /* ---------- Scroll parallax ---------- */
   var pxEls = [];
   document.querySelectorAll('[data-parallax]').forEach(function (el) {
-    pxEls.push({ el: el, depth: parseFloat(el.getAttribute('data-parallax')) || 0.12 });
+    pxEls.push({ el: el, depth: parseFloat(el.getAttribute('data-parallax')) || 0.12, scale: 1.12 });
+  });
+  /* Subtle auto-depth on large media frames, site-wide */
+  document.querySelectorAll('.puree-block .media-frame, .split-media, .solution-intro-media, .umamite-media').forEach(function (el) {
+    if (el.hasAttribute('data-parallax')) return;
+    var img = el.firstElementChild;
+    if (img) img.style.transition = 'none';
+    pxEls.push({ el: el, depth: 0.07, scale: 1.08 });
   });
   if (pxEls.length && !reduceMotion) {
     var ticking = false;
@@ -187,7 +194,7 @@
         if (r.bottom < 0 || r.top > window.innerHeight) return;
         var progress = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
         var target = p.el.firstElementChild || p.el;
-        target.style.transform = 'translateY(' + (progress * p.depth * -100).toFixed(1) + 'px) scale(1.12)';
+        target.style.transform = 'translateY(' + (progress * p.depth * -100).toFixed(1) + 'px) scale(' + p.scale + ')';
       });
       ticking = false;
     };
@@ -208,6 +215,41 @@
         header.classList.remove('is-hidden');
       }
       lastY = y;
+    }, { passive: true });
+  }
+
+  /* ---------- Hero video: load only where it earns its bytes ----------
+     Phones keep the graded poster (no 1080p download on cellular);
+     tablet/desktop attach the source and autoplay. */
+  document.querySelectorAll('video[data-hero-video]').forEach(function (v) {
+    if (window.matchMedia('(min-width: 40em)').matches && !reduceMotion) {
+      v.querySelectorAll('source[data-src]').forEach(function (s) {
+        s.src = s.getAttribute('data-src');
+      });
+      v.load();
+      v.autoplay = true;
+      var tryPlay = function () {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      };
+      v.addEventListener('canplay', tryPlay, { once: true });
+      tryPlay();
+    }
+  });
+
+  /* ---------- Floating WhatsApp: park while scrolling, return on pause ---------- */
+  var fab = document.querySelector('.wa-fab');
+  if (fab && !reduceMotion) {
+    var fabTimer = null;
+    var fabLastY = window.scrollY;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (Math.abs(y - fabLastY) > 6) {
+        fab.classList.add('is-parked');
+        clearTimeout(fabTimer);
+        fabTimer = setTimeout(function () { fab.classList.remove('is-parked'); }, 320);
+      }
+      fabLastY = y;
     }, { passive: true });
   }
 

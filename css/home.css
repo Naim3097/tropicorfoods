@@ -34,13 +34,44 @@
   .hero-media video, .hero-media img { animation: none; }
 }
 
+/* Grade: darkened bottom for type + a unifying ink-teal wash so any footage
+   reads on-brand and white type always clears the imagery. */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, rgba(12, 22, 19, 0.82) 0%, rgba(12, 22, 19, 0.28) 45%, rgba(12, 22, 19, 0.38) 100%);
+    linear-gradient(to top, rgba(12, 22, 19, 0.85) 0%, rgba(12, 22, 19, 0.34) 45%, rgba(12, 22, 19, 0.44) 100%),
+    rgba(16, 42, 38, 0.18);
+}
+
+/* Scroll cue: a thin line that draws itself downward (no arrow, no icon) */
+.hero-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  width: 1px;
+  height: 3.25rem;
+  background: rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+}
+.hero-cue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: cue-draw 2.4s var(--ease-out) infinite;
+}
+@keyframes cue-draw {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  45%  { transform: scaleY(1); transform-origin: top; }
+  55%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@media (max-width: 39.99em) { .hero-cue { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-cue::before { animation: none; transform: none; }
 }
 
 .hero-inner {
@@ -62,6 +93,10 @@
   font-size: var(--fs-lead);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.82);
+}
+/* Phones: the hero keeps only the first sentence — a hook, not a paragraph */
+@media (max-width: 39.99em) {
+  .hero-sub-more { display: none; }
 }
 
 .hero-actions {
@@ -87,8 +122,15 @@
 
 /* Trust bar styles live in theme.css (shared with the landing page) */
 
-/* ---------- STATEMENT ---------- */
-.statement .t-display { max-width: 24ch; }
+/* ---------- STATEMENT (the page's one typographic moment) ---------- */
+.statement .t-display {
+  max-width: 15ch;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.statement .t-display em { color: var(--teal-deep); }
 .statement-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -117,13 +159,36 @@
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(1.25rem, 2vw, 2rem);
 }
+/* Desktop: asymmetric editorial cut — wide/narrow, then mirrored.
+   Equal heights per row via fixed frame height (cover crop). */
+@media (min-width: 64em) {
+  .categories-grid { grid-template-columns: repeat(12, 1fr); }
+  .categories-grid .media-card:nth-child(1) { grid-column: span 7; }
+  .categories-grid .media-card:nth-child(2) { grid-column: span 5; }
+  .categories-grid .media-card:nth-child(3) { grid-column: span 5; }
+  .categories-grid .media-card:nth-child(4) { grid-column: span 7; }
+  .categories-grid .media-card .media-frame {
+    aspect-ratio: auto;
+    height: clamp(17rem, 25vw, 23rem);
+  }
+}
 @media (max-width: 63.99em) { .categories-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 39.99em) {
-  .categories-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-  /* Compact cards on phones: shorter, title only */
-  .categories-grid .media-card .media-frame { aspect-ratio: 1 / 1; }
-  .categories-grid .media-sub { display: none; }
-  .categories-grid .media-title { font-size: 1.05rem; }
+  /* Swipe strip: near-full-width cards, next one peeking */
+  .categories-grid {
+    display: flex;
+    gap: 0.85rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .categories-grid::-webkit-scrollbar { display: none; }
+  .categories-grid .media-card { flex: 0 0 76%; scroll-snap-align: start; }
+  .categories-grid .media-title { font-size: 1.2rem; }
 }
 
 /* ---------- FEEGOH (brand masthead) ---------- */
@@ -220,8 +285,21 @@
 }
 @media (max-width: 63.99em) { .feegoh-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 39.99em) {
-  .feegoh-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-  .feegoh-grid .media-title { font-size: 1.05rem; }
+  /* Swipe strip, matching the categories treatment */
+  .feegoh-grid {
+    display: flex;
+    gap: 0.85rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .feegoh-grid::-webkit-scrollbar { display: none; }
+  .feegoh-grid .media-card { flex: 0 0 76%; scroll-snap-align: start; }
+  .feegoh-grid .media-title { font-size: 1.2rem; }
 }
 
 .feegoh-grid .media-card .media-frame { aspect-ratio: 3 / 4; }

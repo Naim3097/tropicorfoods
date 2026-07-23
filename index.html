@@ -20,6 +20,7 @@
   <!-- Fonts -->
 
   <!-- Styles -->
+  <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&amp;q=70&amp;auto=format&amp;fit=crop">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/home.css">
 
@@ -116,18 +117,19 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero-media">
-        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=70&auto=format&fit=crop">
-          <source src="https://videos.pexels.com/video-files/3195650/3195650-hd_1920_1080_25fps.mp4" type="video/mp4">
+        <video muted loop playsinline preload="none" data-hero-video poster="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=70&auto=format&fit=crop">
+          <source data-src="https://videos.pexels.com/video-files/3195650/3195650-hd_1920_1080_25fps.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-inner container">
-        <h1 class="t-hero" data-hero="1">Seasonings, food ingredients &amp; fruit purees, <em>manufactured in Malaysia.</em></h1>
-        <p class="hero-sub" data-hero="2">Tropicor Foods is a halal-certified manufacturer of seasonings, fruit purees and food ingredients, supplying restaurants, beverage brands and food manufacturers in 25 countries, from signature blends to fully custom OEM production.</p>
+        <h1 class="t-hero" data-hero="1">The flavour behind <em>Malaysia's food brands.</em></h1>
+        <p class="hero-sub" data-hero="2">Seasonings, food ingredients and fruit purees, halal-certified and manufactured in Selangor, Malaysia. <span class="hero-sub-more">We supply restaurants, beverage brands and food manufacturers in 25 countries, from signature blends to fully custom OEM production.</span></p>
         <div class="hero-actions" data-hero="3">
           <a href="products.html" class="btn btn--light btn--lg">Explore Products</a>
           <a href="contact.html" class="btn btn--outline btn--lg" data-track="quote_cta_click">Request a Quote</a>
         </div>
       </div>
+      <div class="hero-cue" aria-hidden="true"></div>
     </section>
 
     <!-- ============ TRUST BAR ============ -->
@@ -139,10 +141,6 @@
           <img src="assets/About Us/gmp logo.png" alt="Good Manufacturing Practice certified">
           <img src="assets/About Us/Mesti Logo.png" alt="MESTI certified">
           <img src="assets/certifications/haccp.svg" alt="HACCP compliant">
-        </div>
-        <div class="trust-facts">
-          <div class="trust-fact"><strong>30+</strong><span>Years</span></div>
-          <div class="trust-fact"><strong>25</strong><span>Countries</span></div>
         </div>
       </div>
     </section>
@@ -372,7 +370,8 @@
         <div class="film-row">
           <div class="reveal">
             <div class="film-head">
-              <h3 class="film-title">Partner Stories</h3>            </div>
+              <h3 class="film-title">Restaurant &amp; HORECA partner</h3>
+            </div>
             <div class="film-frame">
               <video controls preload="none" poster="assets/videos/posters/testimonial-1.jpg" data-title="Partner Testimonial 1">
                 <source src="assets/videos/testimonial-1.mp4" type="video/mp4">
@@ -381,7 +380,8 @@
           </div>
           <div class="reveal reveal-d1">
             <div class="film-head">
-              <h3 class="film-title">Partner Stories</h3>            </div>
+              <h3 class="film-title">Food manufacturing partner</h3>
+            </div>
             <div class="film-frame">
               <video controls preload="none" poster="assets/videos/posters/testimonial-2.jpg" data-title="Partner Testimonial 2">
                 <source src="assets/videos/testimonial-2.mp4" type="video/mp4">
