@@ -21,8 +21,7 @@
   color: var(--teal-deep);
   margin-bottom: 1.25rem;
 }
-/* Hero H1 uses the sans display treatment, consistent with every
-   other hero headline on the site (section headings stay Fraunces). */
+/* Hero H1: heaviest step (700), consistent with every other hero on the site. */
 .product-hero h1 {
   max-width: 16ch;
   font-family: var(--font-body);
@@ -70,13 +69,7 @@
   object-fit: cover;
 }
 
-/* Packaging mockups: show the whole product on a soft ground */
-.shot-contain { background: var(--paper-deep); }
-.shot-contain img {
-  object-fit: contain !important;
-  padding: clamp(1rem, 5%, 2.5rem);
-  box-sizing: border-box;
-}
+/* .shot-contain lives in theme.css so it applies on every page (incl. homepage) */
 
 @media (max-width: 63.99em) {
   .product-hero-grid { grid-template-columns: 1fr; }
@@ -128,7 +121,7 @@
 .apps-row h3 {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 480;
+  font-weight: 600;
 }
 .apps-row p { color: var(--muted); font-size: var(--fs-small); max-width: 56ch; }
 
@@ -182,4 +175,83 @@
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* ---------- SPECIFICATION SHEET PAGES ---------- */
+.specdoc { max-width: 56rem; }
+.specdoc-sub {
+  margin-top: 0.75rem;
+  font-size: var(--fs-lead);
+  color: var(--muted);
+}
+.specdoc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.specdoc-block { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.specdoc-block > h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.specdoc-block p { color: var(--text); line-height: 1.7; max-width: 70ch; }
+.specdoc-block p + p { margin-top: 1rem; }
+.specdoc-block .lang-label {
+  display: block;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.spec-nutrition {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-small);
+}
+.spec-nutrition th, .spec-nutrition td {
+  text-align: left;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+}
+.spec-nutrition th {
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 40%;
+  padding-right: 1.5rem;
+}
+.spec-nutrition td { font-weight: 600; }
+.specdoc-note {
+  margin-top: 1rem;
+  font-size: var(--fs-meta);
+  color: var(--muted);
+  max-width: 70ch;
+}
+.specdoc-apps { list-style: none; border-top: 1px solid var(--line); }
+.specdoc-apps li {
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-small);
+}
+
+/* Print: a clean A4 document */
+@media print {
+  .site-header, .site-footer, .wa-fab, .specdoc-actions, .crumbs,
+  .enquiry-panel, .specdoc-backlink { display: none !important; }
+  body { background: #fff; }
+  .section, .product-hero { padding-block: 0.75rem !important; }
+  .product-hero { padding-top: 1.5rem !important; }
+  .specdoc, .container { max-width: 100% !important; }
+  .specdoc-block { margin-top: 1.5rem; break-inside: avoid; }
+  .spec-row, .spec-nutrition tr, .specdoc-apps li { break-inside: avoid; }
+  a { text-decoration: none; color: inherit; }
 }

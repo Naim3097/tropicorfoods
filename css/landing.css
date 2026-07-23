@@ -131,7 +131,7 @@
 .lp-step h3 {
   font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 480;
+  font-weight: 600;
   margin-bottom: 0.6rem;
 }
 .lp-step p { font-size: var(--fs-small); color: var(--muted); }

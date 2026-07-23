@@ -1,8 +1,43 @@
 /* ==========================================================
    TROPICOR FOODS — 2026 DESIGN SYSTEM
    Editorial, warm, ingredient-led. Brand teal preserved.
-   Fonts: Fraunces (display) + Instrument Sans (body/UI)
+   Type: Avenir Next (single family, self-hosted).
+   Hierarchy is built from weight + size + tracking, not from
+   mixing typefaces:
+     Body 400 · Meta/UI 500–600 · Headings 600 · Hero 700 · Stats 700
    ========================================================== */
+
+/* ============ FONT FACE — Avenir Next (self-hosted woff2) ============ */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Demi.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../assets/fonts/AvenirNext-Heavy.woff2') format('woff2');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
 
 :root {
   /* Brand */
@@ -27,19 +62,22 @@
   --line: rgba(26, 43, 39, 0.14);
   --line-on-dark: rgba(244, 241, 234, 0.18);
 
-  /* Type */
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Arial, sans-serif;
+  /* Type — one family everywhere; --font-display kept as an alias so
+     existing rules that reference it resolve to the same Avenir Next. */
+  --font-sans: 'Avenir Next', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
 
   /* Fluid type scale */
-  --fs-hero: clamp(2.75rem, 6.5vw, 5.5rem);
-  --fs-display: clamp(2.25rem, 4.5vw, 4rem);
-  --fs-title: clamp(1.75rem, 3vw, 2.75rem);
-  --fs-subtitle: clamp(1.25rem, 1.8vw, 1.625rem);
-  --fs-lead: clamp(1.0625rem, 1.4vw, 1.25rem);
-  --fs-body: 1.0625rem;
-  --fs-small: 0.9375rem;
-  --fs-meta: 0.8125rem;
+  /* Type scale toned down one level (headings were oversized) */
+  --fs-hero: clamp(2.25rem, 5vw, 4.25rem);
+  --fs-display: clamp(1.85rem, 3.6vw, 3.1rem);
+  --fs-title: clamp(1.5rem, 2.4vw, 2.15rem);
+  --fs-subtitle: clamp(1.125rem, 1.5vw, 1.375rem);
+  --fs-lead: clamp(1rem, 1.2vw, 1.15rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-meta: 0.75rem;
 
   /* Layout */
   --gutter: clamp(1.25rem, 4vw, 4rem);
@@ -82,26 +120,26 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 /* ============ TYPOGRAPHY ============ */
 h1, h2, h3, .display {
   font-family: var(--font-display);
-  font-weight: 480;
-  line-height: 1.08;
+  font-weight: 600;
+  line-height: 1.1;
   letter-spacing: -0.015em;
   color: inherit;
 }
 
-/* Hero headlines: clean grotesque sans for a professional, industrial B2B feel.
-   Section headings (.t-display / .t-title) stay Fraunces serif. */
+/* Type hierarchy (single family, weight-driven):
+   Hero 800 (Heavy) > section headings 700 (Bold) > card/UI 600 (Demi) > body 400 */
 .t-hero {
   font-family: var(--font-body);
   font-size: var(--fs-hero);
   font-weight: 700;
-  line-height: 1.04;
+  line-height: 1.05;
   letter-spacing: -0.025em;
 }
 .t-hero em { font-style: normal; font-weight: 700; }
 
-.t-display  { font-size: var(--fs-display); }
-.t-title    { font-size: var(--fs-title); }
-.t-subtitle { font-size: var(--fs-subtitle); line-height: 1.25; }
+.t-display  { font-size: var(--fs-display); font-weight: 700; letter-spacing: -0.025em; }
+.t-title    { font-size: var(--fs-title); font-weight: 700; letter-spacing: -0.02em; }
+.t-subtitle { font-size: var(--fs-subtitle); line-height: 1.25; font-weight: 600; }
 
 .t-lead {
   font-size: var(--fs-lead);
@@ -121,7 +159,7 @@ h1, h2, h3, .display {
 
 em, .accent-italic {
   font-style: italic;
-  font-weight: 420;
+  font-weight: 500;
 }
 
 /* ============ LAYOUT ============ */
@@ -393,7 +431,7 @@ em, .accent-italic {
     display: block;
     font-family: var(--font-display);
     font-size: 1.6rem;
-    font-weight: 450;
+    font-weight: 600;
     padding-block: 1rem;
     opacity: 1;
   }
@@ -489,7 +527,7 @@ em, .accent-italic {
 .media-card .media-title {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 480;
+  font-weight: 600;
   line-height: 1.2;
   color: #fff;
 }
@@ -516,7 +554,7 @@ em, .accent-italic {
 .index-row .index-title {
   font-family: var(--font-display);
   font-size: clamp(1.375rem, 2.4vw, 2rem);
-  font-weight: 460;
+  font-weight: 600;
   line-height: 1.15;
   transition: color 0.3s;
 }
@@ -695,7 +733,7 @@ em, .accent-italic {
   display: block;
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 2.6vw, 2.6rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
   color: var(--teal-deep);
 }
@@ -713,6 +751,14 @@ em, .accent-italic {
   .trust-label { max-width: none; border-right: 0; padding-right: 0; }
   .trust-facts { justify-content: center; border-left: 0; padding-left: 0; }
   .trust-fact { text-align: center; }
+}
+
+/* ============ PACKAGING SHOTS (show whole product on a soft ground) ============ */
+.shot-contain { background: var(--paper-deep); }
+.shot-contain img {
+  object-fit: contain !important;
+  padding: clamp(1rem, 5%, 2.5rem);
+  box-sizing: border-box;
 }
 
 /* ============ SECTION FOOT (centered follow-on action) ============ */
@@ -777,7 +823,7 @@ em, .accent-italic {
   .film-intro-grid { grid-template-columns: 1fr; }
   .film-intro-copy { max-width: 42rem; }
 }
-/* Title row sits above the frame: Fraunces title + small meta */
+/* Title row sits above the frame: heading title + small meta */
 .film-head {
   display: flex;
   align-items: baseline;
@@ -789,7 +835,7 @@ em, .accent-italic {
 .film-title {
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2vw, 1.75rem);
-  font-weight: 480;
+  font-weight: 600;
   line-height: 1.2;
 }
 .film-sub {
@@ -948,3 +994,12 @@ em, .accent-italic {
 .mb-1 { margin-bottom: 1rem; } .mb-2 { margin-bottom: 2rem; } .mb-3 { margin-bottom: 3rem; }
 .measure { max-width: 62ch; }
 .center { text-align: center; margin-inline: auto; }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

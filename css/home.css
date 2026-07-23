@@ -49,9 +49,11 @@
 }
 
 .hero h1 {
-  max-width: 15ch;
-  font-weight: 420;
+  max-width: 20ch;
+  font-weight: 700;
+  text-wrap: balance;
 }
+/* Accent phrase on its own colour, kept together on the line flow */
 .hero h1 em { color: #A8E6DE; }
 
 .hero-sub {
@@ -116,45 +118,37 @@
   gap: clamp(1.25rem, 2vw, 2rem);
 }
 @media (max-width: 63.99em) { .categories-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 39.99em) { .categories-grid { grid-template-columns: 1fr; } }
+@media (max-width: 39.99em) {
+  .categories-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  /* Compact cards on phones: shorter, title only */
+  .categories-grid .media-card .media-frame { aspect-ratio: 1 / 1; }
+  .categories-grid .media-sub { display: none; }
+  .categories-grid .media-title { font-size: 1.05rem; }
+}
 
-/* ---------- FEEGOH (asymmetric brand lockup) ---------- */
+/* ---------- FEEGOH (brand masthead) ---------- */
+/* Logo left, copy right, vertically centred so the two sides balance.
+   Logo art is pre-cleaned to transparency (no white badge, no shadow). */
 .feegoh-head {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-}
-.feegoh-brand {
-  background: var(--white);
-  border-radius: var(--r-xl);
-  border-top: 4px solid #E2231A; /* FEEGOH brand red */
-  padding: clamp(2rem, 4vw, 3.25rem);
-  text-align: center;
-  box-shadow: 0 20px 48px -28px rgba(26, 43, 39, 0.22);
+  margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
 .feegoh-brand img {
-  height: clamp(3.5rem, 6vw, 5rem);
-  width: auto;
-  margin-inline: auto;
-}
-.feegoh-label {
   display: block;
-  margin-top: 1.5rem;
-  font-size: var(--fs-meta);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  width: min(100%, 27rem);
+  height: auto;
 }
-.feegoh-intro .t-display { max-width: 18ch; }
-.feegoh-intro .t-lead { margin-top: 1.25rem; max-width: 52ch; }
-.feegoh-intro .btn { margin-top: 1.75rem; }
+.feegoh-copy .t-display { max-width: 18ch; }
+.feegoh-copy .t-lead { margin-top: 1.25rem; max-width: 48ch; }
+.feegoh-copy .btn { margin-top: 1.75rem; }
 
 @media (max-width: 63.99em) {
-  .feegoh-head { grid-template-columns: 1fr; }
-  .feegoh-brand { max-width: 22rem; }
+  .feegoh-head { grid-template-columns: 1fr; gap: 2rem; }
+  .feegoh-brand { display: flex; justify-content: center; }
+  .feegoh-brand img { width: min(72%, 19rem); }
 }
 
 /* ---------- FEEGOH UMAMITE (Marmite alternative highlight) ---------- */
@@ -168,7 +162,7 @@
   overflow: hidden;
   box-shadow: 0 24px 56px -30px rgba(22, 97, 86, 0.6);
 }
-.umamite-media { position: relative; min-height: 20rem; }
+.umamite-media { position: relative; min-height: 26rem; }
 .umamite-media img {
   position: absolute;
   inset: 0;
@@ -225,7 +219,10 @@
   gap: clamp(1.25rem, 2vw, 2rem);
 }
 @media (max-width: 63.99em) { .feegoh-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 39.99em) { .feegoh-grid { grid-template-columns: 1fr; } }
+@media (max-width: 39.99em) {
+  .feegoh-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .feegoh-grid .media-title { font-size: 1.05rem; }
+}
 
 .feegoh-grid .media-card .media-frame { aspect-ratio: 3 / 4; }
 .feegoh-grid .media-title { color: var(--text-on-dark); }
@@ -254,7 +251,7 @@
 .puree-block .media-frame {
   overflow: hidden;
   position: relative;
-  min-height: 20rem;
+  min-height: 26rem;
   border-radius: 0;
 }
 .puree-block .media-frame img {
@@ -292,7 +289,7 @@
 .stat-figure {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 450;
+  font-weight: 700;
   line-height: 1;
   color: var(--teal-deep);
 }
