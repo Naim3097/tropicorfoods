@@ -179,8 +179,10 @@
   document.querySelectorAll('[data-parallax]').forEach(function (el) {
     pxEls.push({ el: el, depth: parseFloat(el.getAttribute('data-parallax')) || 0.12, scale: 1.12 });
   });
-  /* Subtle auto-depth on large media frames, site-wide */
-  document.querySelectorAll('.puree-block .media-frame, .split-media, .solution-intro-media, .umamite-media').forEach(function (el) {
+  /* Subtle auto-depth on large media frames, site-wide.
+     (Puree frames excluded: the parallax scale-up crowded the product
+     packshots against the frame edges.) */
+  document.querySelectorAll('.split-media, .solution-intro-media, .umamite-media').forEach(function (el) {
     if (el.hasAttribute('data-parallax')) return;
     var img = el.firstElementChild;
     if (img) img.style.transition = 'none';
@@ -218,24 +220,97 @@
     }, { passive: true });
   }
 
-  /* ---------- Hero video: load only where it earns its bytes ----------
-     Phones keep the graded poster (no 1080p download on cellular);
-     tablet/desktop attach the source and autoplay. */
-  document.querySelectorAll('video[data-hero-video]').forEach(function (v) {
-    if (window.matchMedia('(min-width: 40em)').matches && !reduceMotion) {
-      v.querySelectorAll('source[data-src]').forEach(function (s) {
-        s.src = s.getAttribute('data-src');
-      });
-      v.load();
-      v.autoplay = true;
-      var tryPlay = function () {
-        var p = v.play();
-        if (p && p.catch) p.catch(function () {});
+  /* ---------- Hero video rotation: sequential clips, seamless loop ----------
+     Two stacked players alternate: while one is on screen the other
+     preloads the next clip, then a crossfade begins just before the
+     active clip ends. Muted + playsinline keeps autoplay working on
+     mobile; local 720p files keep the payload light. */
+  var rotator = document.querySelector('[data-hero-rotate]');
+  if (rotator) {
+    var clips = [];
+    try { clips = JSON.parse(rotator.getAttribute('data-hero-rotate')) || []; } catch (e) { clips = []; }
+    // NB: named heroPlayers, not players — `var players` further down
+    // (the pause-others feature) shares this function scope.
+    var heroPlayers = rotator.querySelectorAll('video');
+
+    var playSafe = function (v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+
+    if (clips.length > 1 && heroPlayers.length === 2 && !reduceMotion) {
+      var clipIndex = 0;      // clip currently on screen
+      var heroActive = 0;     // player currently on screen
+      var switching = false;
+      var CROSSFADE_LEAD = 1; // seconds before clip end to begin handover
+
+      heroPlayers.forEach(function (v) { v.muted = true; });
+
+      // Prime the first clip immediately; the second only starts
+      // preloading once the first is actually rendering frames, so the
+      // two downloads never compete for first-paint bandwidth.
+      heroPlayers[0].src = clips[0];
+      heroPlayers[0].load();
+      playSafe(heroPlayers[0]);
+      var primeNext = function () {
+        heroPlayers[1].src = clips[1];
+        heroPlayers[1].load();
       };
-      v.addEventListener('canplay', tryPlay, { once: true });
-      tryPlay();
+      heroPlayers[0].addEventListener('playing', primeNext, { once: true });
+      // Fallback: if playback is blocked/stalled, still preload the
+      // second clip after a beat so the rotation can proceed.
+      setTimeout(function () {
+        if (!heroPlayers[1].src) primeNext();
+      }, 4000);
+
+      var swap = function () {
+        if (switching) return;
+        switching = true;
+        var outgoing = heroPlayers[heroActive];
+        heroActive = 1 - heroActive;
+        clipIndex = (clipIndex + 1) % clips.length;
+        var incoming = heroPlayers[heroActive];
+        try { incoming.currentTime = 0; } catch (err) {}
+        playSafe(incoming);
+        incoming.classList.add('is-active');
+        outgoing.classList.remove('is-active');
+        // Once the fade completes, recycle the hidden player to preload
+        // the clip after the one now showing.
+        setTimeout(function () {
+          outgoing.pause();
+          outgoing.src = clips[(clipIndex + 1) % clips.length];
+          outgoing.load();
+          switching = false;
+        }, 1200);
+      };
+
+      heroPlayers.forEach(function (v) {
+        v.addEventListener('timeupdate', function () {
+          if (v !== heroPlayers[heroActive] || !v.duration) return;
+          if (v.duration - v.currentTime <= CROSSFADE_LEAD) swap();
+        });
+        // Safety net: if timeupdate never caught the tail, hand over on end
+        v.addEventListener('ended', function () {
+          if (v === heroPlayers[heroActive]) swap();
+        });
+        // If a clip stalls (slow network), jump to the next one rather
+        // than holding a frozen frame.
+        v.addEventListener('error', function () {
+          if (v === heroPlayers[heroActive]) swap();
+        });
+      });
+
+      // Browsers suspend background-tab video; resume when the user returns
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) playSafe(heroPlayers[heroActive]);
+      });
+    } else if (clips.length && heroPlayers.length) {
+      // Reduced motion (or single clip): hold the first clip's poster/frame
+      heroPlayers[0].src = clips[0];
+      heroPlayers[0].load();
+      if (!reduceMotion) playSafe(heroPlayers[0]);
     }
-  });
+  }
 
   /* ---------- Floating WhatsApp: park while scrolling, return on pause ---------- */
   var fab = document.querySelector('.wa-fab');

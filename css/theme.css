@@ -1,42 +1,26 @@
 /* ==========================================================
    TROPICOR FOODS — 2026 DESIGN SYSTEM
    Editorial, warm, ingredient-led. Brand teal preserved.
-   Type: Avenir Next (single family, self-hosted).
-   Hierarchy is built from weight + size + tracking, not from
-   mixing typefaces:
-     Body 400 · Meta/UI 500–600 · Headings 600 · Hero 700 · Stats 700
+   Type: Inter Tight (display: headlines, section headings,
+   stats) + Geist (body, UI, buttons, nav, labels, forms).
+   Both self-hosted as variable woff2 (latin subset).
    ========================================================== */
 
-/* ============ FONT FACE — Avenir Next (self-hosted woff2) ============ */
+/* ============ FONT FACE — Inter Tight + Geist (self-hosted, variable) ============ */
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Regular.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
+  font-family: 'Inter Tight';
+  src: url('../assets/fonts/InterTight-Variable.woff2') format('woff2');
+  font-weight: 400 800; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Italic.woff2') format('woff2');
-  font-weight: 400; font-style: italic; font-display: swap;
+  font-family: 'Inter Tight';
+  src: url('../assets/fonts/InterTight-Italic-Variable.woff2') format('woff2');
+  font-weight: 400 800; font-style: italic; font-display: swap;
 }
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Medium.woff2') format('woff2');
-  font-weight: 500; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Demi.woff2') format('woff2');
-  font-weight: 600; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Bold.woff2') format('woff2');
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Avenir Next';
-  src: url('../assets/fonts/AvenirNext-Heavy.woff2') format('woff2');
-  font-weight: 800; font-style: normal; font-display: swap;
+  font-family: 'Geist';
+  src: url('../assets/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900; font-style: normal; font-display: swap;
 }
 
 :root {
@@ -45,9 +29,9 @@
   --teal-deep: #166156;
   --teal-dark: #1F8277;
 
-  /* Surfaces */
-  --paper: #FAF7F2;        /* warm cream — default background */
-  --paper-deep: #F2EDE4;   /* deeper cream for alternating bands */
+  /* Surfaces — cool, bright neutrals with a whisper of the brand green */
+  --paper: #F8FAF9;        /* near-white cool — default background */
+  --paper-deep: #EFF3F1;   /* cool mist for alternating bands */
   --white: #FFFFFF;
   --ink: #1A2B27;          /* deep green-charcoal — dark sections, text */
   --ink-soft: #24352F;
@@ -55,17 +39,18 @@
   /* Text */
   --text: #1A2B27;
   --muted: #5E6E68;
-  --text-on-dark: #F4F1EA;
-  --muted-on-dark: rgba(244, 241, 234, 0.64);
+  --text-on-dark: #F2F5F4;
+  --muted-on-dark: rgba(242, 245, 244, 0.64);
 
   /* Lines */
   --line: rgba(26, 43, 39, 0.14);
   --line-on-dark: rgba(244, 241, 234, 0.18);
 
-  /* Type — one family everywhere; --font-display kept as an alias so
-     existing rules that reference it resolve to the same Avenir Next. */
-  --font-sans: 'Avenir Next', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-display: var(--font-sans);
+  /* Type — two families:
+     display (Inter Tight): headlines, section headings, big numbers
+     body (Geist): paragraphs, buttons, nav, labels, forms, UI */
+  --font-sans: 'Geist', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Inter Tight', var(--font-sans);
   --font-body: var(--font-sans);
 
   /* Fluid type scale */
@@ -126,10 +111,11 @@ h1, h2, h3, .display {
   color: inherit;
 }
 
-/* Type hierarchy (single family, weight-driven):
-   Hero 800 (Heavy) > section headings 700 (Bold) > card/UI 600 (Demi) > body 400 */
+/* Type hierarchy:
+   Hero / display / titles — Inter Tight, weight-driven
+   Body & UI — Geist */
 .t-hero {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: var(--fs-hero);
   font-weight: 700;
   line-height: 1.05;
@@ -160,6 +146,28 @@ h1, h2, h3, .display {
 em, .accent-italic {
   font-style: italic;
   font-weight: 500;
+}
+
+/* Kicker — the one eyebrow style used above every section heading.
+   Doubles as the visitor's wayfinding through the page story:
+   Who we are → Products → Brand → Spotlight → Range → Solutions → Proof. */
+.kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 1.1rem;
+}
+.section--dark .kicker { color: var(--teal); }
+
+/* Brand mark — a compact brand logo sitting above a heading */
+.brand-mark {
+  width: min(11rem, 55%);
+  height: auto;
+  margin-bottom: 1.5rem;
 }
 
 /* ============ LAYOUT ============ */
@@ -296,7 +304,7 @@ em, .accent-italic {
 /* Solid state (scrolled, or pages without hero media) */
 .site-header--solid,
 .site-header.is-scrolled {
-  background: rgba(250, 247, 242, 0.92);
+  background: rgba(248, 250, 249, 0.92);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom-color: var(--line);
@@ -444,7 +452,7 @@ em, .accent-italic {
 
   .nav-link {
     display: block;
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: 1.6rem;
     font-weight: 600;
     padding-block: 1rem;
@@ -501,18 +509,19 @@ em, .accent-italic {
   html { scroll-behavior: auto; }
 }
 
-/* ============ MEDIA CARD (unified: text lives on the image) ============ */
+/* ============ MEDIA CARD (clean image, text set below it) ============
+   The photo stays untouched — no scrim, no overlay text. Title and
+   supporting line sit under the frame in the section's own colours. */
 .media-card {
   display: block;
   position: relative;
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  isolation: isolate;
 }
 
 .media-card .media-frame {
   aspect-ratio: 4 / 5;
   background: var(--paper-deep);
+  border-radius: var(--r-lg);
+  overflow: hidden;
 }
 .media-card .media-frame img {
   width: 100%;
@@ -522,51 +531,77 @@ em, .accent-italic {
 }
 .media-card:hover .media-frame img { transform: scale(1.05); }
 
-/* Lift on hover: soft, wide shadow (never harder, only softer) */
-.media-card:hover {
+/* Lift on hover: the frame rises; text stays planted */
+.media-card .media-frame {
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+}
+.media-card:hover .media-frame {
   transform: translateY(-5px);
   box-shadow: 0 26px 52px -26px rgba(26, 43, 39, 0.32);
 }
-/* Once revealed (or when never a reveal target), transitions serve the hover
-   lift; .reveal's own transition + delay stays untouched until it completes. */
-.media-card:not(.reveal),
-.media-card.is-visible {
-  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
-}
 @media (prefers-reduced-motion: reduce) {
-  .media-card:hover { transform: none; }
+  .media-card:hover .media-frame { transform: none; }
 }
 
-/* Scrim so text reads on any photo */
-.media-card::after {
+.media-card .media-body {
+  padding: 1.1rem 0.25rem 0;
+}
+.media-card .media-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+  transition: color 0.3s;
+}
+.media-card:hover .media-title { color: var(--teal-deep); }
+.media-card .media-sub {
+  margin-top: 0.4rem;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+.section--dark .media-card .media-sub { color: var(--muted-on-dark); }
+.section--dark .media-card:hover .media-title { color: var(--teal); }
+
+/* Overlay variant — reserved for the "What we make" mosaic: title set
+   on the photo behind a soft grade, whole card lifts on hover. */
+.media-card--overlay {
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  isolation: isolate;
+}
+.media-card--overlay .media-frame { border-radius: 0; }
+.media-card--overlay::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(10, 18, 16, 0.88) 0%, rgba(10, 18, 16, 0.55) 42%, rgba(10, 18, 16, 0.14) 72%, rgba(10, 18, 16, 0) 100%);
   transition: opacity 0.5s var(--ease-out);
+  pointer-events: none;
 }
-.media-card:hover::after { opacity: 0.92; }
-
-.media-card .media-body {
+.media-card--overlay:hover::after { opacity: 0.92; }
+.media-card--overlay .media-body {
   position: absolute;
   inset: auto 0 0 0;
   z-index: 1;
   padding: 1.5rem 1.5rem 1.4rem;
-  color: #fff;
 }
-.media-card .media-title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: #fff;
+.media-card--overlay .media-title,
+.media-card--overlay:hover .media-title { color: #fff; font-size: 1.4rem; }
+.media-card--overlay .media-sub,
+.section--dark .media-card--overlay .media-sub { color: rgba(255, 255, 255, 0.78); }
+.media-card--overlay:not(.reveal),
+.media-card--overlay.is-visible {
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
 }
-.media-card .media-sub {
-  margin-top: 0.45rem;
-  font-size: var(--fs-small);
-  color: rgba(255, 255, 255, 0.78);
+.media-card--overlay:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 52px -26px rgba(26, 43, 39, 0.32);
 }
-.section--dark .media-card .media-sub { color: rgba(255, 255, 255, 0.78); }
+.media-card--overlay:hover .media-frame { transform: none; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .media-card--overlay:hover { transform: none; }
+}
 
 /* ============ INDEX LIST (editorial rows) ============ */
 .index-list { border-top: 1px solid var(--line); }
@@ -1022,6 +1057,19 @@ em, .accent-italic {
 @media (prefers-reduced-motion: reduce) {
   .mask-reveal { clip-path: none; transition: none; }
   .split-words .w { opacity: 1; transform: none; transition: none; }
+}
+
+/* ============ STATEMENT GRID (shared: heading + side copy) ============ */
+.statement-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: end;
+}
+.statement-side p + p { margin-top: 1.25rem; }
+.statement-side .link-line { margin-top: 1.75rem; color: var(--teal-deep); }
+@media (max-width: 63.99em) {
+  .statement-grid { grid-template-columns: 1fr; }
 }
 
 /* ============ UTILITIES ============ */

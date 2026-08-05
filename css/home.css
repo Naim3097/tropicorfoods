@@ -24,14 +24,35 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* Multi-video rotation: two stacked players crossfade so clips hand
+   over without cuts, black frames or loading gaps. The active player
+   also re-runs a slow settle-zoom each time it takes the screen. */
+.hero-media video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.1s var(--ease-out);
+  /* Keep the crossfade + settle-zoom on the compositor thread */
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.hero-media video.is-active {
+  opacity: 1;
   animation: hero-zoom 16s var(--ease-out) forwards;
 }
 @keyframes hero-zoom {
   from { transform: scale(1.12); }
   to   { transform: scale(1); }
 }
+/* Phones: bias the crop toward the visual centre of the food footage
+   so the plated subject stays in frame on tall, narrow screens. */
+@media (max-width: 39.99em) {
+  .hero-media video { object-position: 50% 45%; }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-media video, .hero-media img { animation: none; }
+  .hero-media video { transition: none; }
 }
 
 /* Grade: darkened bottom for type + a unifying ink-teal wash so any footage
@@ -122,26 +143,59 @@
 
 /* Trust bar styles live in theme.css (shared with the landing page) */
 
-/* ---------- STATEMENT (the page's one typographic moment) ---------- */
+/* ---------- WHO WE ARE (statement + brand film, merged) ----------
+   One section carries who Tropicor is, what it delivers and why to
+   trust it: short copy + three UI pillars beside the brand film. */
 .statement .t-display {
-  max-width: 15ch;
-  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 4.6vw, 3.9rem);
   line-height: 1.06;
   letter-spacing: -0.025em;
   text-wrap: balance;
 }
 .statement .t-display em { color: var(--teal-deep); }
-.statement-grid {
+
+/* Copy beside the film at its native 16:9 — never cropped. The film
+   column is slightly wider so the frame carries real presence, and the
+   copy column stays compact so the two sides sit level. */
+.who-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
-  align-items: end;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
 }
-.statement-side p + p { margin-top: 1.25rem; }
-.statement-side .link-line { margin-top: 1.75rem; color: var(--teal-deep); }
+.who-copy .t-lead { margin-top: 1.25rem; max-width: 44ch; }
+.who-copy .btn { margin-top: 2rem; }
+
+/* The three proofs run full-width under the pair — same hairline-row
+   band as the Umamite facts and About capabilities. */
+.who-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.who-points li {
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+.who-points h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.who-points p {
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+@media (max-width: 63.99em) {
+  .who-points { grid-template-columns: 1fr; gap: 1.25rem; }
+}
 
 @media (max-width: 63.99em) {
-  .statement-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- CATEGORIES ---------- */
@@ -192,8 +246,8 @@
 }
 
 /* ---------- FEEGOH (brand masthead) ---------- */
-/* Logo left, copy right, vertically centred so the two sides balance.
-   Logo art is pre-cleaned to transparency (no white badge, no shadow). */
+/* Copy left, logo right, vertically centred. The logo column is the
+   narrower of the two so the mark reads as a signature, not a banner. */
 .feegoh-head {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -201,19 +255,29 @@
   align-items: center;
   margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
-.feegoh-brand img {
-  display: block;
-  width: min(100%, 27rem);
-  height: auto;
-}
 .feegoh-copy .t-display { max-width: 18ch; }
 .feegoh-copy .t-lead { margin-top: 1.25rem; max-width: 48ch; }
 .feegoh-copy .btn { margin-top: 1.75rem; }
+/* Brand plaque: the logo mounted on a white card that fills the right
+   half, so both columns carry equal weight. The hi-res lockup lets the
+   mark run large and stay crisp. */
+.feegoh-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 16rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--white);
+  border-radius: var(--r-xl);
+  box-shadow: 0 20px 48px -28px rgba(26, 43, 39, 0.18);
+}
+.feegoh-brand img { width: min(100%, 27rem); height: auto; }
 
 @media (max-width: 63.99em) {
   .feegoh-head { grid-template-columns: 1fr; gap: 2rem; }
-  .feegoh-brand { display: flex; justify-content: center; }
-  .feegoh-brand img { width: min(72%, 19rem); }
+  .feegoh-brand { min-height: 11rem; }
+  .feegoh-brand img { width: min(60%, 15rem); }
 }
 
 /* ---------- FEEGOH UMAMITE (Marmite alternative highlight) ---------- */
@@ -246,24 +310,6 @@
 .umamite-copy { padding: clamp(2rem, 4vw, 3.5rem); align-self: center; }
 .umamite-copy .t-title { max-width: 18ch; }
 .umamite-copy p { margin-top: 1.25rem; color: rgba(255, 255, 255, 0.85); max-width: 52ch; }
-.umamite-contact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1.5rem;
-  margin-top: 1.75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-}
-.umamite-contact span {
-  font-size: var(--fs-meta);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-}
-.umamite-contact a { font-weight: 600; transition: color 0.25s; }
-.umamite-contact a:hover { color: #A8E6DE; }
 .umamite-actions {
   display: flex;
   flex-wrap: wrap;
@@ -277,6 +323,73 @@
 @media (max-width: 39.99em) {
   .umamite-actions .btn { width: 100%; }
 }
+
+/* Spotlight framing: section heading above the card */
+.umamite-intro { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.umamite-intro .t-display { max-width: 16ch; }
+.umamite-intro .t-display em { color: var(--teal-deep); }
+
+/* Applications: label above a tidy two-column list */
+.umamite-apps {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.umamite-apps span {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.umamite-apps ul {
+  columns: 2;
+  column-gap: 2rem;
+  max-width: 30rem;
+}
+.umamite-apps li {
+  break-inside: avoid;
+  padding-block: 0.3rem;
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.9);
+}
+@media (max-width: 39.99em) {
+  .umamite-apps ul { columns: 1; }
+}
+
+/* Fact rows under the card — same editorial device as the stats grid
+   and the About-page capabilities: a hairline, a title, one line. */
+.umamite-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.umamite-fact {
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+.umamite-fact svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.85rem;
+}
+.umamite-fact h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.umamite-fact p {
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+@media (max-width: 63.99em) { .umamite-facts { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 39.99em) { .umamite-facts { grid-template-columns: 1fr; gap: 1.25rem; } }
 
 .feegoh-grid {
   display: grid;
@@ -303,10 +416,9 @@
 }
 
 .feegoh-grid .media-card .media-frame { aspect-ratio: 3 / 4; }
-.feegoh-grid .media-title { color: var(--text-on-dark); }
 .feegoh-grid .media-cue {
   display: inline-block;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
   font-size: var(--fs-meta);
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -356,13 +468,38 @@
   .puree-block .media-frame { min-height: 0; aspect-ratio: 16 / 10; }
 }
 
+/* ---------- TROPICOR RANGE INTRO (transition band) ---------- */
+.range-intro {
+  padding-block: clamp(3.5rem, 7vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.range-intro-logo {
+  display: block;
+  width: min(21rem, 72%);
+  height: auto;
+  margin: 0 auto 1.75rem;
+}
+.range-intro .t-display { max-width: 16ch; margin-inline: auto; }
+.range-intro .t-display em { color: var(--teal-deep); }
+.range-intro .t-lead { max-width: 52ch; margin: 1.25rem auto 0; }
+
+/* Puree card awaiting client-supplied product asset */
+.media-frame--pending { position: relative; }
+.media-frame--pending .media-slot {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  aspect-ratio: auto;
+}
+
 /* ---------- STATS (clean, light) ---------- */
 .stats-head { margin-bottom: clamp(2rem, 4vw, 3rem); }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  text-align: left;
+  text-align: center;
 }
 .stat-figure {
   font-family: var(--font-display);
@@ -376,7 +513,6 @@
   font-size: var(--fs-small);
   color: var(--muted);
 }
-.stats-grid > div { border-top: 2px solid var(--teal); padding-top: 1.5rem; }
 
 @media (max-width: 63.99em) { .stats-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 39.99em) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem 1.25rem; } }

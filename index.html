@@ -91,6 +91,7 @@
             </ul>
           </li>
           <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-extra">
             <a href="contact.html" class="btn btn--primary">Let’s Talk</a>
@@ -116,10 +117,9 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="hero-media">
-        <video muted loop playsinline preload="none" data-hero-video poster="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=70&auto=format&fit=crop">
-          <source data-src="https://videos.pexels.com/video-files/3195650/3195650-hd_1920_1080_25fps.mp4" type="video/mp4">
-        </video>
+      <div class="hero-media" data-hero-rotate='["assets/videos/hero-572221_Bowl_Different_1280x720-web.mp4","assets/videos/hero-5350810_Coll_wavebreak_Tray_1280x720-web.mp4","assets/videos/hero-0_Peppercorns_Pepper_1280x720-web.mp4"]'>
+        <video class="is-active" muted playsinline preload="auto" poster="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=70&auto=format&fit=crop" aria-hidden="true"></video>
+        <video muted playsinline preload="auto" aria-hidden="true"></video>
       </div>
       <div class="hero-inner container">
         <h1 class="t-hero" data-hero="1">The flavour behind <em>Malaysia's food brands.</em></h1>
@@ -145,31 +145,38 @@
       </div>
     </section>
 
-    <!-- ============ STATEMENT ============ -->
-    <section class="section statement">
-      <div class="container statement-grid">
-        <h2 class="t-display reveal">We help food businesses <em>taste better</em>, from first recipe to full-scale production.</h2>
-        <div class="statement-side reveal reveal-d1">
-          <p class="t-lead">With more than 30 years of experience in the food ingredient industry, Tropicor Foods supplies and manufactures seasonings, premixes, dried ingredients and fruit products for professional kitchens and food factories across Asia, the Middle East and Africa.</p>
-          <p class="t-lead">Two production facilities in Selangor. Halal, GMP and MESTI certified. One team obsessed with flavour.</p>
-          <a href="about.html" class="link-line">About Tropicor Foods</a>
+    <!-- ============ WHO WE ARE (statement + brand film, merged) ============ -->
+    <section class="section statement" id="who-we-are">
+      <div class="container">
+        <div class="who-grid">
+          <div class="who-copy reveal">
+            <span class="kicker">Who we are</span>
+            <h2 class="t-display">We help food businesses <em>taste better</em>.</h2>
+            <p class="t-lead">For over 30 years, Tropicor Foods has manufactured the seasonings, ingredients and fruit products behind kitchens and food factories in 25 countries.</p>
+            <a href="about.html" class="btn btn--ink">About Tropicor Foods</a>
+          </div>
+          <div class="who-media reveal reveal-d1">
+            <div class="film-frame">
+              <video controls preload="metadata" poster="assets/videos/posters/who-we-are.jpg" data-title="Who We Are">
+                <source src="assets/videos/who-we-are.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ BRAND FILM (high up) ============ -->
-    <section class="section section--white" id="film-intro">
-      <div class="container film-intro-grid">
-        <div class="film-intro-copy reveal">
-          <h2 class="t-display">Who we are</h2>
-          <p class="t-lead">Meet the people and the story behind Tropicor Foods, from our first recipes to two production facilities in Selangor.</p>
-          <a href="about.html" class="link-line" style="color: var(--teal-deep);">About Tropicor Foods</a>
-        </div>
-        <div class="film-frame reveal reveal-d1">
-          <video controls preload="metadata" poster="assets/videos/posters/who-we-are.jpg" data-title="Who We Are">
-            <source src="assets/videos/who-we-are.mp4" type="video/mp4">
-          </video>
-        </div>
+        <ul class="who-points">
+          <li class="reveal">
+            <h3>Manufacturer, not middleman</h3>
+            <p>Two production facilities in Selangor, blending and packing every product in-house.</p>
+          </li>
+          <li class="reveal reveal-d1">
+            <h3>First recipe to full scale</h3>
+            <p>Formulation, sampling and OEM production under one roof.</p>
+          </li>
+          <li class="reveal reveal-d2">
+            <h3>Certified &amp; trusted</h3>
+            <p>Halal, GMP and MESTI certified, with HACCP-compliant processes.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -177,31 +184,34 @@
     <section class="section section--white">
       <div class="container">
         <div class="categories-head">
-          <h2 class="t-display reveal">What we make</h2>
+          <div class="reveal">
+            <span class="kicker">Products</span>
+            <h2 class="t-display">What we make</h2>
+          </div>
         </div>
         <div class="categories-grid">
-          <a href="seasonings.html" class="media-card reveal">
+          <a href="seasonings.html" class="media-card media-card--overlay reveal">
             <div class="media-frame"><img src="assets/Homepage/Homepage-Sesonings & Pre Mix Card.jpg" alt="Seasonings and pre-mix blends" loading="lazy"></div>
             <div class="media-body">
               <h3 class="media-title">Seasonings &amp; Pre-Mix</h3>
               <p class="media-sub">Stock powders, savoury seasonings and complete premix systems, blended and packed in-house.</p>
             </div>
           </a>
-          <a href="fruit-products.html" class="media-card reveal reveal-d1">
+          <a href="fruit-products.html" class="media-card media-card--overlay reveal reveal-d1">
             <div class="media-frame"><img src="assets/Homepage/Homepage-Fruit Products Card.jpg" alt="Fruit purees, juices and concentrates" loading="lazy"></div>
             <div class="media-body">
               <h3 class="media-title">Fruit Products</h3>
               <p class="media-sub">Tropical fruit purees, juices, syrups and concentrates for beverage and dessert applications.</p>
             </div>
           </a>
-          <a href="food-ingredients.html" class="media-card reveal reveal-d2">
+          <a href="food-ingredients.html" class="media-card media-card--overlay reveal reveal-d2">
             <div class="media-frame"><img src="assets/Homepage/Homepage-Food Ingredients Card.jpg" alt="Herbs, spices and functional food ingredients" loading="lazy"></div>
             <div class="media-body">
               <h3 class="media-title">Food Ingredients</h3>
               <p class="media-sub">Herbs, spices, extracts, dried fruit and vegetables, and functional ingredients, all sourced and quality-assured.</p>
             </div>
           </a>
-          <a href="customisation-oem.html" class="media-card reveal reveal-d3">
+          <a href="customisation-oem.html" class="media-card media-card--overlay reveal reveal-d3">
             <div class="media-frame"><img src="assets/Homepage/Homepage-Customisation & OEM Card.jpg" alt="Custom formulation and OEM manufacturing" loading="lazy"></div>
             <div class="media-body">
               <h3 class="media-title">Customisation &amp; OEM</h3>
@@ -219,13 +229,13 @@
     <section class="section section--deep" id="feegoh">
       <div class="container">
         <div class="feegoh-head">
-          <div class="feegoh-brand reveal">
-            <img src="assets/FEEGOH/feegoh-logo-clean.png" alt="FEEGOH Seasoning, a Tropicor Foods brand">
-          </div>
-          <div class="feegoh-copy reveal reveal-d1">
+          <div class="feegoh-copy reveal">
             <h2 class="t-display">Signature seasonings, built for volume kitchens.</h2>
             <p class="t-lead">From chicken stock to ikan bilis and multipurpose blends, FEEGOH brings clean labels, consistent flavour and the depth home recipes are measured against, now in professional pack sizes.</p>
             <a href="seasonings.html" class="btn btn--ink">Explore the FEEGOH Range</a>
+          </div>
+          <div class="feegoh-brand reveal reveal-d1">
+            <img src="assets/FEEGOH/feegoh-logo-hires.png" alt="FEEGOH Seasoning, a Tropicor Foods brand">
           </div>
         </div>
         <div class="feegoh-grid">
@@ -261,20 +271,29 @@
       </div>
     </section>
 
-    <!-- ============ FEEGOH UMAMITE ============ -->
-    <section class="section" id="umamite">
+    <!-- ============ FEEGOH UMAMITE (product spotlight) ============ -->
+    <section class="section section--white" id="umamite">
       <div class="container">
+        <div class="umamite-intro reveal">
+          <span class="kicker">Product spotlight</span>
+          <h2 class="t-display">FEEGOH <em>Umamite</em></h2>
+        </div>
         <div class="umamite-card reveal">
           <div class="umamite-media">
             <img src="assets/products/feegoh-umamite.jpg" alt="FEEGOH Umamite yeast extract spread with dishes" loading="lazy">
           </div>
           <div class="umamite-copy">
-            <h2 class="t-title">FEEGOH Umamite</h2>
-            <p>Umamite is our rich, savoury yeast-extract spread with a deep umami hit, halal-certified and produced in Selangor. A new favourite on toast, and a fast way to build flavour in stocks, gravies and marinades.</p>
-            <div class="umamite-contact">
-              <span>Enquire directly</span>
-              <a href="mailto:enquiries@tropicorfoods.com">enquiries@tropicorfoods.com</a>
-              <a href="tel:+60122556701">+60 12-255 6701</a>
+            <h3 class="t-title">The savoury depth kitchens build on.</h3>
+            <p>Our rich yeast-extract spread with a deep umami hit, halal-certified and produced in Selangor.</p>
+            <div class="umamite-apps">
+              <span>Applications</span>
+              <ul>
+                <li>Toast &amp; spreads</li>
+                <li>Stocks &amp; soups</li>
+                <li>Gravies &amp; sauces</li>
+                <li>Marinades</li>
+                <li>Snack seasoning</li>
+              </ul>
             </div>
             <div class="umamite-actions">
               <a href="products/feegoh-umamite.html" class="btn btn--light btn--lg">About Umamite</a>
@@ -282,11 +301,42 @@
             </div>
           </div>
         </div>
+        <div class="umamite-facts">
+          <div class="umamite-fact reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14v1a7 7 0 0 1-7 7 7 7 0 0 1-7-7v-1Z"/><path d="M9 8c0-1.2 1-1.6 1-2.8M13.5 8c0-1.2 1-1.6 1-2.8"/></svg>
+            <h3>Instant umami</h3>
+            <p>Concentrated savoury depth in seconds, without long reductions.</p>
+          </div>
+          <div class="umamite-fact reveal reveal-d1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 10-4.1-1.8-7-5.6-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3>Halal-certified</h3>
+            <p>Produced in Selangor under GMP and MESTI standards.</p>
+          </div>
+          <div class="umamite-fact reveal reveal-d2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19h16M6 19V9l6-4 6 4v10"/><path d="M10 19v-4h4v4"/></svg>
+            <h3>Made for manufacturers</h3>
+            <p>Consistent spec and supply for factories, foodservice and retail.</p>
+          </div>
+          <div class="umamite-fact reveal reveal-d3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.5 5 .7-3.6 3.5.8 4.9L12 14.3l-4.4 2.3.8-4.9L4.8 8.2l5-.7L12 3Z"/></svg>
+            <h3>Rare in the market</h3>
+            <p>One of the few regionally produced yeast-extract spreads.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TROPICOR RANGE INTRO ============ -->
+    <section class="range-intro" aria-label="The Tropicor range">
+      <div class="container">
+        <img src="assets/Homepage/tropicor-logo-mark.png" alt="Tropicor Foods" class="range-intro-logo reveal">
+        <h2 class="t-display reveal reveal-d1">The <em>Tropicor</em> range</h2>
+        <p class="t-lead reveal reveal-d2">Under our own name: tropical fruit purees and syrups, pressed and packed for beverage and dessert programmes.</p>
       </div>
     </section>
 
     <!-- ============ PUREES ============ -->
-    <section class="section">
+    <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="puree-block reveal">
           <div class="media-frame">
@@ -296,6 +346,16 @@
             <h2 class="t-title">Tropicor Calamansi Puree</h2>
             <p class="t-lead">Single-fruit calamansi puree with the sharpness beverage programmes ask for. Consistent Brix, consistent colour, batch after batch. Built for juice bars, cafés and beverage manufacturers.</p>
             <a href="products/tropicor-calamansi-puree.html" class="link-line">View product</a>
+          </div>
+        </div>
+        <div class="puree-block reveal">
+          <div class="media-frame media-frame--pending">
+            <div class="media-slot"><span>Product imagery coming soon</span></div>
+          </div>
+          <div class="puree-copy">
+            <h2 class="t-title">Tropicor Calamansi Syrup</h2>
+            <p class="t-lead">Calamansi brightness in a pour-ready syrup: built for drinks stations, dessert toppings and high-volume beverage service, with the same fruit character as our puree.</p>
+            <span class="link-line" style="color: var(--muted); pointer-events: none;">Full details coming soon</span>
           </div>
         </div>
         <div class="puree-block reveal">
@@ -314,7 +374,10 @@
     <!-- ============ INDUSTRIES ============ -->
     <section class="section section--deep" id="industries">
       <div class="container">
-        <h2 class="t-display reveal mb-3">Partners in the food you make.</h2>
+        <div class="reveal mb-3">
+          <span class="kicker">Solutions</span>
+          <h2 class="t-display">Partners in the food you make.</h2>
+        </div>
         <div class="index-list">
           <a href="solutions/oem-private-label-food-manufacturing.html" class="index-row reveal">
             <div>
@@ -364,13 +427,17 @@
     <section class="section" id="films">
       <div class="container">
         <div class="categories-head">
-          <h2 class="t-display reveal">What our partners say</h2>
+          <div class="reveal">
+            <span class="kicker">Testimonials</span>
+            <h2 class="t-display">What our partners say</h2>
+          </div>
+          <a href="testimonials.html" class="link-line reveal reveal-d1" style="color: var(--teal-deep);">View all testimonials</a>
         </div>
 
         <div class="film-row">
           <div class="reveal">
             <div class="film-head">
-              <h3 class="film-title">Restaurant &amp; HORECA partner</h3>
+              <h3 class="film-title">Restaurant &amp; HORECA Partner</h3>
             </div>
             <div class="film-frame">
               <video controls preload="none" poster="assets/videos/posters/testimonial-1.jpg" data-title="Partner Testimonial 1">
@@ -380,7 +447,7 @@
           </div>
           <div class="reveal reveal-d1">
             <div class="film-head">
-              <h3 class="film-title">Food manufacturing partner</h3>
+              <h3 class="film-title">Food Distributor Partner</h3>
             </div>
             <div class="film-frame">
               <video controls preload="none" poster="assets/videos/posters/testimonial-2.jpg" data-title="Partner Testimonial 2">
@@ -461,6 +528,7 @@
           <h3>Company</h3>
           <ul>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="https://wa.me/60122556701" target="_blank" rel="noopener">WhatsApp Sales</a></li>
           </ul>

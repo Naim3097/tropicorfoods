@@ -3,3 +3,8 @@ manual assets/
 
 # Local Claude Code settings (machine-specific)
 .claude/settings.local.json
+
+# Unoptimised hero source clips (site uses the hero-*-web.mp4 encodes)
+assets/videos/572221_Bowl_Different_1280x720.mp4
+assets/videos/5350810_Coll_wavebreak_Tray_1280x720.mp4
+assets/videos/0_Peppercorns_Pepper_1280x720.mp4
