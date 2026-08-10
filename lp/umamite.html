@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>UMAMITE — Malaysia's Halal Yeast-Extract Spread | Tropicor Foods</title>
-  <meta name="description" content="Missing Marmite? UMAMITE is the halal-certified yeast-extract spread made in Malaysia. WhatsApp us for retail, restaurant supply, bulk orders or distribution.">
+  <title>UMAMITE — The Halal Yeast-Extract Spread Made in Malaysia | Tropicor Foods</title>
+  <meta name="description" content="Marmite has left Malaysian shelves. UMAMITE is the halal-certified yeast-extract spread made in Malaysia, for homes, restaurants, manufacturers and distributors. WhatsApp us.">
   <!-- Ads landing page: keep out of organic index (the insights article owns SEO) -->
   <meta name="robots" content="noindex, nofollow">
 
@@ -23,10 +23,10 @@
   </script>
 
   <style>
-    /* UMAMITE promo layer — visual-first, WhatsApp-only */
+    /* UMAMITE promo layer — persuasion flow, WhatsApp-only */
     .ulp-hero {
       position: relative;
-      min-height: 88svh;
+      min-height: 86svh;
       display: flex;
       align-items: flex-end;
       color: #fff;
@@ -37,40 +37,36 @@
     .ulp-hero::after {
       content: '';
       position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(to top, rgba(12, 22, 19, 0.82) 0%, rgba(12, 22, 19, 0.25) 55%, rgba(12, 22, 19, 0.35) 100%);
+      background: linear-gradient(to top, rgba(12, 22, 19, 0.85) 0%, rgba(12, 22, 19, 0.3) 55%, rgba(12, 22, 19, 0.35) 100%);
     }
     .ulp-hero-inner { width: 100%; padding-block: clamp(2.5rem, 6vh, 4.5rem); }
-    .ulp-hero .t-hero { max-width: 14ch; }
+    .ulp-hero .t-hero { max-width: 16ch; }
     .ulp-hero .t-hero em { color: #A8E6DE; }
     .ulp-kickline {
       margin-top: 1.25rem;
       font-size: var(--fs-lead);
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 38ch;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 46ch;
     }
-    .ulp-badges {
-      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
-      margin-top: 1.5rem;
-      font-size: var(--fs-meta); font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.75);
-    }
-    .ulp-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .ulp-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+    .ulp-cta-note { font-size: var(--fs-small); color: rgba(255, 255, 255, 0.7); }
 
-    .ulp-jar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-    .ulp-jar-grid img { width: min(100%, 24rem); margin-inline: auto; display: block; border-radius: var(--r-lg); }
+    /* Situation facts */
+    .ulp-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 2.5vw, 2.5rem); }
+    .ulp-fact { border-top: 1px solid var(--line); padding-top: 1.25rem; }
+    .ulp-fact h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+    .ulp-fact p { margin-top: 0.5rem; font-size: var(--fs-small); color: var(--muted); }
 
-    .ulp-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.85rem, 1.5vw, 1.5rem); }
-    .ulp-mosaic figure { margin: 0; }
-    .ulp-mosaic img {
-      width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--r-lg); display: block;
-    }
-    .ulp-mosaic figcaption {
-      margin-top: 0.6rem;
-      font-size: var(--fs-meta); font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-    }
+    /* Jar / solution */
+    .ulp-jar-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    .ulp-jar-grid img { width: min(100%, 23rem); margin-inline: auto; display: block; border-radius: var(--r-lg); }
 
+    /* Reassurance */
+    .ulp-switch-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    .ulp-switch-grid img { width: min(100%, 22rem); margin-inline: auto; display: block; border-radius: var(--r-lg); }
+
+    /* Audience paths */
     .ulp-paths { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2vw, 1.5rem); }
     .ulp-path {
       background: var(--teal-deep); color: #fff;
@@ -83,21 +79,20 @@
     .ulp-path .btn { margin-top: auto; padding: 0.8rem 1.25rem; }
 
     .ulp-final { text-align: center; }
-    .ulp-final .t-display { max-width: 18ch; margin-inline: auto; }
+    .ulp-final .t-display { max-width: 20ch; margin-inline: auto; }
+    .ulp-final p { max-width: 44ch; margin: 1rem auto 0; color: var(--muted); }
     .ulp-final .btn { margin-top: 2rem; }
     .ulp-final-phone { margin-top: 1.25rem; font-size: var(--fs-small); color: var(--muted); }
     .ulp-final-phone a { font-weight: 600; color: var(--teal-deep); }
 
     @media (max-width: 63.99em) {
-      .ulp-jar-grid { grid-template-columns: 1fr; }
+      .ulp-jar-grid, .ulp-switch-grid { grid-template-columns: 1fr; }
+      .ulp-facts { grid-template-columns: 1fr; gap: 1.25rem; }
       .ulp-paths { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 39.99em) {
-      .ulp-mosaic { grid-template-columns: 1fr; }
-      .ulp-mosaic img { aspect-ratio: 4 / 3; }
       .ulp-paths { grid-template-columns: 1fr; }
-      .ulp-cta-row .btn { width: 100%; }
-      .ulp-final .btn { width: 100%; }
+      .ulp-cta-row .btn, .ulp-final .btn { width: 100%; }
     }
   </style>
 </head>
@@ -113,7 +108,7 @@
       </div>
       <div class="lp-header-actions">
         <a href="tel:+60122556701" class="lp-header-phone">+60 12-255 6701</a>
-        <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
+        <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20ask%20about%20UMAMITE."
            class="btn btn--primary" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_header">WhatsApp Us</a>
       </div>
     </div>
@@ -121,27 +116,58 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- 1. PROBLEM -->
     <section class="ulp-hero">
       <div class="ulp-hero-media">
         <img src="../assets/products/umamite-breakfast-scene.jpg" alt="">
       </div>
       <div class="container ulp-hero-inner">
-        <h1 class="t-hero">Missing Marmite? <em>Meet UMAMITE.</em></h1>
-        <p class="ulp-kickline">The halal yeast-extract spread, made in Malaysia. Ada stok.</p>
-        <div class="ulp-badges">
-          <span>Halal JAKIM</span>
-          <span>True yeast extract</span>
-          <span>Made in Malaysia</span>
-        </div>
+        <h1 class="t-hero">Can&rsquo;t get Marmite? <em>We have UMAMITE.</em></h1>
+        <p class="ulp-kickline">Marmite has been officially delisted from Malaysia. UMAMITE is the halal-certified yeast-extract spread made right here, so your toast, your menu and your shelves do not have to wait for a comeback.</p>
         <div class="ulp-cta-row">
-          <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-             class="btn btn--primary btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_hero">WhatsApp Us Now</a>
+          <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20ask%20about%20UMAMITE."
+             class="btn btn--primary btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_hero">WhatsApp Us About UMAMITE</a>
+          <span class="ulp-cta-note">Replies within one working day</span>
         </div>
       </div>
     </section>
 
-    <!-- TRUST MARKS -->
+    <!-- 2. AWARENESS: the situation, stated calmly -->
+    <section class="lp-section">
+      <div class="container">
+        <h2 class="t-display reveal mb-3">What happened to Marmite?</h2>
+        <div class="ulp-facts">
+          <div class="ulp-fact reveal">
+            <h3>Officially delisted</h3>
+            <p>Unilever confirmed Marmite was withdrawn from Malaysia and Singapore in April 2026, citing long-running production problems.</p>
+          </div>
+          <div class="ulp-fact reveal reveal-d1">
+            <h3>Old stock, rising prices</h3>
+            <p>Jars still floating around online are leftover stock, often listed at two to four times the old shelf price.</p>
+          </div>
+          <div class="ulp-fact reveal reveal-d2">
+            <h3>No return date</h3>
+            <p>No comeback has been announced. Kitchens that rely on yeast extract need an answer that does not depend on one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOLUTION: what is UMAMITE -->
+    <section class="lp-section section--white">
+      <div class="container ulp-jar-grid">
+        <div class="reveal">
+          <h2 class="t-display">The same jar-on-the-shelf role, <em>filled locally.</em></h2>
+          <p class="t-lead" style="margin-top: 1.25rem;">UMAMITE is a true yeast-extract spread, the same family of product as Marmite. Rich, dark and deeply savoury, it does the same work on hot buttered toast and in the kitchen, from Marmite chicken to stocks, gravies and marinades.</p>
+          <p class="t-lead" style="margin-top: 1rem;">It is made by FEEGOH, the seasoning brand of Tropicor Foods, at our halal-certified facilities in Malaysia. Local production is the point: the supply problem that took Marmite off the shelf is the one thing UMAMITE does not have.</p>
+        </div>
+        <div class="reveal reveal-d1">
+          <img src="../assets/products/pack-umamite.jpg" alt="UMAMITE yeast-extract spread, 420g jar">
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TRUST -->
     <section class="lp-trust" aria-label="Certifications">
       <div class="container trust-inner">
         <span class="trust-label">Certified &amp; audited</span>
@@ -158,44 +184,42 @@
       </div>
     </section>
 
-    <!-- THE JAR -->
+    <!-- 5. WHY UMAMITE holds up -->
     <section class="lp-section">
-      <div class="container ulp-jar-grid">
-        <div class="reveal">
-          <h2 class="t-display">Same spot on the toast. <em>New jar.</em></h2>
-          <p class="t-lead" style="margin-top: 1.25rem; max-width: 36ch;">Deep, savoury umami for breakfast, Marmite chicken and everything in between.</p>
-          <div class="ulp-cta-row">
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20where%20can%20I%20buy%20UMAMITE%3F"
-               class="btn btn--ink btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_jar">Ask Where to Buy</a>
+      <div class="container faq-wrap">
+        <h2 class="t-display reveal mb-3">Why it holds up as the alternative</h2>
+        <div class="apps-list reveal reveal-d1">
+          <div class="apps-row">
+            <h3>A real yeast extract, not a workaround</h3>
+            <p>Soy sauce and stock cubes can fake the colour, not the character. UMAMITE is the same category of product Marmite belongs to, so recipes behave the way you expect.</p>
+          </div>
+          <div class="apps-row">
+            <h3>Halal certified, and worth checking</h3>
+            <p>Produced under JAKIM halal, GMP and MESTI. Some imported substitutes are beef based or carry no certification at all. Ours comes with the paperwork.</p>
+          </div>
+          <div class="apps-row">
+            <h3>Made by a manufacturer, not a trader</h3>
+            <p>Tropicor Foods has made seasonings in Malaysia for over 30 years. The same jar tastes the same next month and next year, which matters when it carries a signature dish.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 6. REASSURANCE: switching -->
+    <section class="lp-section section--white">
+      <div class="container ulp-switch-grid">
+        <div class="reveal">
+          <img src="../assets/products/umamite-card-45.jpg" alt="UMAMITE spread on toast">
+        </div>
         <div class="reveal reveal-d1">
-          <img src="../assets/products/pack-umamite.jpg" alt="UMAMITE yeast-extract spread, 420g jar">
+          <h2 class="t-display">Switching is smaller than it feels.</h2>
+          <p class="t-lead" style="margin-top: 1.25rem;">Taste it before you commit: samples are available for business enquiries. Your QA team gets the halal certificate, specification and COA without chasing. And because it plays the same role in a recipe, most kitchens adjust in a single tasting, not a reformulation project.</p>
+          <p class="t-lead" style="margin-top: 1rem;">If it does not work for your kitchen, you have lost one WhatsApp message. If it does, you have solved supply for good.</p>
         </div>
       </div>
     </section>
 
-    <!-- MOSAIC -->
-    <section class="lp-section section--white" style="padding-top: 0;">
-      <div class="container">
-        <div class="ulp-mosaic">
-          <figure class="reveal">
-            <img src="../assets/products/umamite-breakfast-square.jpg" alt="UMAMITE on toast with scrambled eggs">
-            <figcaption>Breakfast, sorted</figcaption>
-          </figure>
-          <figure class="reveal reveal-d1">
-            <img src="../assets/products/feegoh-umamite.jpg" alt="UMAMITE with cooked dishes">
-            <figcaption>Built for the kitchen</figcaption>
-          </figure>
-          <figure class="reveal reveal-d2">
-            <img src="../assets/products/umamite-card-45.jpg" alt="UMAMITE jar and spread">
-            <figcaption>420g of umami</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHO IT'S FOR -->
+    <!-- 7. WHO WE SUPPLY -->
     <section class="lp-section">
       <div class="container">
         <h2 class="t-display reveal mb-3">Tell us who you are. We sort the rest.</h2>
@@ -207,30 +231,31 @@
           </div>
           <div class="ulp-path reveal reveal-d1">
             <h3>Restaurants &amp; cafés</h3>
-            <p>Direct supply. Marmite chicken stays on the menu.</p>
+            <p>Direct supply, so Marmite chicken stays on the menu.</p>
             <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20UMAMITE%20supply%20for%20my%20restaurant." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_horeca">WhatsApp</a>
           </div>
           <div class="ulp-path reveal reveal-d2">
             <h3>Manufacturers</h3>
-            <p>Bulk supply, full documentation.</p>
+            <p>Bulk supply with full documentation.</p>
             <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20discuss%20UMAMITE%20in%20bulk." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_b2b">WhatsApp</a>
           </div>
           <div class="ulp-path reveal reveal-d3">
             <h3>Distributors &amp; agents</h3>
-            <p>The shelf is open. Be first.</p>
+            <p>A staple category just lost its lead brand. We are appointing partners now.</p>
             <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27m%20interested%20in%20distributing%20UMAMITE." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_distributor">WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- 8. ENQUIRY -->
     <section class="lp-section section--deep ulp-final">
       <div class="container">
-        <h2 class="t-display reveal">One message. Umami settled.</h2>
-        <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-           class="btn btn--primary btn--lg reveal reveal-d1" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_footer">WhatsApp Us Now</a>
-        <p class="ulp-final-phone reveal reveal-d2">Prefer to call? <a href="tel:+60122556701">+60 12-255 6701</a></p>
+        <h2 class="t-display reveal">Asking costs nothing.</h2>
+        <p class="reveal reveal-d1">One message gets you availability, pricing and samples where applicable. No forms, no follow-up calls you did not ask for.</p>
+        <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20ask%20about%20UMAMITE."
+           class="btn btn--primary btn--lg reveal reveal-d2" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_footer">WhatsApp Us About UMAMITE</a>
+        <p class="ulp-final-phone reveal reveal-d3">Prefer to call? <a href="tel:+60122556701">+60 12-255 6701</a></p>
       </div>
     </section>
 
@@ -238,8 +263,8 @@
 
   <!-- Sticky mobile CTA: single action -->
   <div class="lp-sticky-cta">
-    <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-       target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_sticky" style="grid-column: 1 / -1;">WhatsApp Us Now</a>
+    <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20ask%20about%20UMAMITE."
+       target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_sticky" style="grid-column: 1 / -1;">WhatsApp Us About UMAMITE</a>
   </div>
 
   <script src="../js/site.js"></script>
