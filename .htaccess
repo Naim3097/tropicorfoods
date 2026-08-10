@@ -1,0 +1,18 @@
+# Tropicor Foods — clean URLs (no .html in the address bar)
+# Works on Apache / LiteSpeed (cPanel hosting).
+
+Options -MultiViews
+RewriteEngine On
+
+# 1) Redirect direct .html requests to the clean URL (301, keeps query string)
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^\s]+)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 2) Internally serve the .html file for extensionless URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# Sensible defaults
+DirectoryIndex index.html
+ErrorDocument 404 /index.html
