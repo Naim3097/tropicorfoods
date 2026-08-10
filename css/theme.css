@@ -414,7 +414,9 @@ em, .accent-italic {
   /* Menu chrome: logo + contact + CTA, injected via ::before/li pattern
      is brittle — real elements live in .nav-extra appended in markup. */
   .site-nav > li { width: 100%; border-bottom: 1px solid var(--line-on-dark); }
-  .site-nav > li:first-child { border-top: 1px solid var(--line-on-dark); }
+  /* The brand logo row carries no rules; the first real item opens the list */
+  .site-nav > li.nav-brand { border: 0; }
+  .site-nav > li.nav-brand + li { border-top: 1px solid var(--line-on-dark); }
   .site-nav > li.nav-extra {
     border: 0;
     margin-top: auto;

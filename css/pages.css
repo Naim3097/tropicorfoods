@@ -253,8 +253,8 @@
   margin-bottom: 1.1rem;
 }
 .article-body ul li { padding-block: 0.2rem; }
-.article-body a { color: var(--teal-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.article-body a:hover { color: var(--teal-dark); }
+.article-body a:not(.btn) { color: var(--teal-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:not(.btn):hover { color: var(--teal-dark); }
 .article-meta {
   display: flex;
   flex-wrap: wrap;
