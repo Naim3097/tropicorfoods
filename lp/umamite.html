@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>UMAMITE — Malaysia's Halal Yeast-Extract Spread | Tropicor Foods</title>
-  <meta name="description" content="Missing Marmite? UMAMITE is the halal-certified yeast-extract spread made in Malaysia. Retail, restaurant supply, bulk orders and distributor opportunities. Enquire today.">
+  <meta name="description" content="Missing Marmite? UMAMITE is the halal-certified yeast-extract spread made in Malaysia. WhatsApp us for retail, restaurant supply, bulk orders or distribution.">
   <!-- Ads landing page: keep out of organic index (the insights article owns SEO) -->
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="stylesheet" href="../css/theme.css">
-  <link rel="stylesheet" href="../css/product.css">
   <link rel="stylesheet" href="../css/landing.css">
 
   <!-- GA4 — replace G-XXXXXXXXXX with the live Measurement ID.
@@ -22,10 +21,89 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
+
+  <style>
+    /* UMAMITE promo layer — visual-first, WhatsApp-only */
+    .ulp-hero {
+      position: relative;
+      min-height: 88svh;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      isolation: isolate;
+    }
+    .ulp-hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--ink); }
+    .ulp-hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .ulp-hero::after {
+      content: '';
+      position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(to top, rgba(12, 22, 19, 0.82) 0%, rgba(12, 22, 19, 0.25) 55%, rgba(12, 22, 19, 0.35) 100%);
+    }
+    .ulp-hero-inner { width: 100%; padding-block: clamp(2.5rem, 6vh, 4.5rem); }
+    .ulp-hero .t-hero { max-width: 14ch; }
+    .ulp-hero .t-hero em { color: #A8E6DE; }
+    .ulp-kickline {
+      margin-top: 1.25rem;
+      font-size: var(--fs-lead);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 38ch;
+    }
+    .ulp-badges {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: var(--fs-meta); font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .ulp-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+    .ulp-jar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+    .ulp-jar-grid img { width: min(100%, 24rem); margin-inline: auto; display: block; border-radius: var(--r-lg); }
+
+    .ulp-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.85rem, 1.5vw, 1.5rem); }
+    .ulp-mosaic figure { margin: 0; }
+    .ulp-mosaic img {
+      width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--r-lg); display: block;
+    }
+    .ulp-mosaic figcaption {
+      margin-top: 0.6rem;
+      font-size: var(--fs-meta); font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .ulp-paths { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2vw, 1.5rem); }
+    .ulp-path {
+      background: var(--teal-deep); color: #fff;
+      border-radius: var(--r-lg);
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .ulp-path h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+    .ulp-path p { font-size: var(--fs-small); color: rgba(255, 255, 255, 0.8); }
+    .ulp-path .btn { margin-top: auto; padding: 0.8rem 1.25rem; }
+
+    .ulp-final { text-align: center; }
+    .ulp-final .t-display { max-width: 18ch; margin-inline: auto; }
+    .ulp-final .btn { margin-top: 2rem; }
+    .ulp-final-phone { margin-top: 1.25rem; font-size: var(--fs-small); color: var(--muted); }
+    .ulp-final-phone a { font-weight: 600; color: var(--teal-deep); }
+
+    @media (max-width: 63.99em) {
+      .ulp-jar-grid { grid-template-columns: 1fr; }
+      .ulp-paths { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 39.99em) {
+      .ulp-mosaic { grid-template-columns: 1fr; }
+      .ulp-mosaic img { aspect-ratio: 4 / 3; }
+      .ulp-paths { grid-template-columns: 1fr; }
+      .ulp-cta-row .btn { width: 100%; }
+      .ulp-final .btn { width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Minimal header: dual brand, no navigation, no exits -->
+  <!-- Minimal header: dual brand, WhatsApp only -->
   <header class="lp-header">
     <div class="container">
       <div style="display: flex; align-items: center; gap: 1.25rem;">
@@ -43,67 +121,27 @@
 
   <main>
 
-    <!-- HERO + LEAD FORM -->
-    <section class="lp-hero">
-      <div class="lp-hero-media">
+    <!-- HERO -->
+    <section class="ulp-hero">
+      <div class="ulp-hero-media">
         <img src="../assets/products/umamite-breakfast-scene.jpg" alt="">
       </div>
-      <div class="container lp-hero-grid">
-        <div>
-          <h1 class="t-display">Missing Marmite? Meet UMAMITE.</h1>
-          <p class="lp-sub">Marmite has been delisted from Malaysia. UMAMITE is the halal-certified yeast-extract spread made right here, for your toast, your menu and your shelves.</p>
-          <ul class="lp-hero-points">
-            <li>True yeast-extract spread, the same family as Marmite</li>
-            <li>Halal (JAKIM), GMP and MESTI certified production</li>
-            <li>Made in Malaysia by a 30-year food manufacturer</li>
-            <li>Retail, foodservice, bulk and distribution enquiries welcome</li>
-          </ul>
+      <div class="container ulp-hero-inner">
+        <h1 class="t-hero">Missing Marmite? <em>Meet UMAMITE.</em></h1>
+        <p class="ulp-kickline">The halal yeast-extract spread, made in Malaysia. Ada stok.</p>
+        <div class="ulp-badges">
+          <span>Halal JAKIM</span>
+          <span>True yeast extract</span>
+          <span>Made in Malaysia</span>
         </div>
-
-        <div class="lead-card">
-          <h2 class="t-subtitle">Enquire about UMAMITE</h2>
-          <p class="lead-note">Tell us who you are and what you need. We reply within one working day.</p>
-          <!-- Web3Forms: replace YOUR-WEB3FORMS-ACCESS-KEY with the real access key -->
-          <form class="lead-form" action="https://api.web3forms.com/submit" method="POST" data-track-form="lp_umamite_lead">
-            <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
-            <input type="hidden" name="subject" value="Google Ads lead — UMAMITE enquiry">
-            <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
-            <div class="field">
-              <label for="lp-name">Name / Company</label>
-              <input id="lp-name" type="text" name="name" required placeholder="Your name or company">
-            </div>
-            <div class="field">
-              <label for="lp-phone">Phone / WhatsApp</label>
-              <input id="lp-phone" type="tel" name="phone" required placeholder="+60">
-            </div>
-            <div class="field">
-              <label for="lp-type">I am enquiring as a</label>
-              <select id="lp-type" name="enquiry_type" required>
-                <option value="" disabled selected>Select one</option>
-                <option>Home buyer (retail availability)</option>
-                <option>Restaurant / Café / Caterer</option>
-                <option>Food manufacturer / Bakery</option>
-                <option>Retailer / Supermarket</option>
-                <option>Distributor / Stockist / Agent</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="lp-message">Your enquiry</label>
-              <textarea id="lp-message" name="message" required placeholder="e.g. Where can I buy UMAMITE in Penang, or bulk supply for 3 outlets, or distributor terms" style="min-height: 5.5rem;"></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--lg">Send Enquiry</button>
-            <p class="form-note">No obligation. Your details stay with our sales team only.</p>
-          </form>
-          <div class="lead-alt">
-            Faster by chat? <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-               target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_form_alt">WhatsApp our sales team</a>
-          </div>
+        <div class="ulp-cta-row">
+          <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
+             class="btn btn--primary btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_hero">WhatsApp Us Now</a>
         </div>
       </div>
     </section>
 
-    <!-- TRUST BAR -->
+    <!-- TRUST MARKS -->
     <section class="lp-trust" aria-label="Certifications">
       <div class="container trust-inner">
         <span class="trust-label">Certified &amp; audited</span>
@@ -120,105 +158,89 @@
       </div>
     </section>
 
-    <!-- WHAT IS UMAMITE -->
+    <!-- THE JAR -->
     <section class="lp-section">
-      <div class="container grid-2">
+      <div class="container ulp-jar-grid">
         <div class="reveal">
-          <h2 class="t-display">The spread the shelf has been waiting for.</h2>
-          <p class="t-lead" style="margin-top: 1.25rem;">UMAMITE is a rich, dark yeast-extract spread with a deep umami hit. A thin scrape on hot buttered toast, a spoonful in stocks, gravies and marinades, and the concentrated savoury base behind Marmite chicken.</p>
-          <p class="t-lead" style="margin-top: 1rem;">It is a true yeast extract, produced at our halal-certified facilities in Malaysia. No shipping lottery, no reseller mark-ups, no wondering whether the next jar will arrive.</p>
+          <h2 class="t-display">Same spot on the toast. <em>New jar.</em></h2>
+          <p class="t-lead" style="margin-top: 1.25rem; max-width: 36ch;">Deep, savoury umami for breakfast, Marmite chicken and everything in between.</p>
+          <div class="ulp-cta-row">
+            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20where%20can%20I%20buy%20UMAMITE%3F"
+               class="btn btn--ink btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_jar">Ask Where to Buy</a>
+          </div>
         </div>
         <div class="reveal reveal-d1">
-          <img src="../assets/products/pack-umamite.jpg" alt="UMAMITE yeast-extract spread, 420g jar" style="width: 100%; max-width: 26rem; margin-inline: auto; display: block; border-radius: var(--r-lg);">
+          <img src="../assets/products/pack-umamite.jpg" alt="UMAMITE yeast-extract spread, 420g jar">
         </div>
       </div>
     </section>
 
-    <!-- WHO IT'S FOR: conversion paths -->
-    <section class="lp-section section--dark">
+    <!-- MOSAIC -->
+    <section class="lp-section section--white" style="padding-top: 0;">
       <div class="container">
-        <h2 class="t-display reveal mb-3">However you buy, we supply.</h2>
-        <div class="lp-steps">
-          <div class="lp-step reveal" style="border-top-color: var(--line-on-dark);">
-            <h3>For your kitchen</h3>
-            <p>Ask about current retail availability near you and put the jar back in the pantry.</p>
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20where%20can%20I%20buy%20UMAMITE%3F" class="link-line" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_b2c" style="color: var(--teal); margin-top: 0.75rem;">Ask where to buy</a>
-          </div>
-          <div class="lp-step reveal reveal-d1" style="border-top-color: var(--line-on-dark);">
-            <h3>Restaurants &amp; foodservice</h3>
-            <p>Keep Marmite chicken on the menu with direct supply and batch-to-batch consistency.</p>
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20UMAMITE%20supply%20for%20my%20restaurant." class="link-line" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_horeca" style="color: var(--teal); margin-top: 0.75rem;">Enquire for your kitchen</a>
-          </div>
-          <div class="lp-step reveal reveal-d2" style="border-top-color: var(--line-on-dark);">
-            <h3>Manufacturers &amp; bakers</h3>
-            <p>A consistent umami ingredient at production scale, with the documentation your QA team needs.</p>
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20discuss%20UMAMITE%20in%20bulk%20for%20production." class="link-line" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_b2b" style="color: var(--teal); margin-top: 0.75rem;">Discuss bulk supply</a>
-          </div>
-          <div class="lp-step reveal reveal-d3" style="border-top-color: var(--line-on-dark);">
-            <h3>Distributors, stockists &amp; agents</h3>
-            <p>A staple category just lost its dominant brand. We are appointing partners now.</p>
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27m%20interested%20in%20distributing%20or%20stocking%20UMAMITE." class="link-line" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_distributor" style="color: var(--teal); margin-top: 0.75rem;">Become a partner</a>
-          </div>
+        <div class="ulp-mosaic">
+          <figure class="reveal">
+            <img src="../assets/products/umamite-breakfast-square.jpg" alt="UMAMITE on toast with scrambled eggs">
+            <figcaption>Breakfast, sorted</figcaption>
+          </figure>
+          <figure class="reveal reveal-d1">
+            <img src="../assets/products/feegoh-umamite.jpg" alt="UMAMITE with cooked dishes">
+            <figcaption>Built for the kitchen</figcaption>
+          </figure>
+          <figure class="reveal reveal-d2">
+            <img src="../assets/products/umamite-card-45.jpg" alt="UMAMITE jar and spread">
+            <figcaption>420g of umami</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- OBJECTIONS -->
+    <!-- WHO IT'S FOR -->
     <section class="lp-section">
-      <div class="container faq-wrap">
-        <h2 class="t-display reveal mb-3">Before you ask</h2>
-        <div class="apps-list reveal reveal-d1">
-          <div class="apps-row">
-            <h3>Is UMAMITE halal?</h3>
-            <p>Yes. It is produced at our JAKIM halal-certified facilities in Malaysia under GMP and MESTI. Worth checking before you buy imported substitutes; some are beef based or carry no certification at all.</p>
+      <div class="container">
+        <h2 class="t-display reveal mb-3">Tell us who you are. We sort the rest.</h2>
+        <div class="ulp-paths">
+          <div class="ulp-path reveal">
+            <h3>Home kitchens</h3>
+            <p>Ask where to buy near you.</p>
+            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20where%20can%20I%20buy%20UMAMITE%3F" class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_b2c">WhatsApp</a>
           </div>
-          <div class="apps-row">
-            <h3>Is it the same as Marmite?</h3>
-            <p>It is the same category of product, a concentrated yeast-extract spread, made to our own recipe. It plays the same role on toast and in cooking.</p>
+          <div class="ulp-path reveal reveal-d1">
+            <h3>Restaurants &amp; cafés</h3>
+            <p>Direct supply. Marmite chicken stays on the menu.</p>
+            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20UMAMITE%20supply%20for%20my%20restaurant." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_horeca">WhatsApp</a>
           </div>
-          <div class="apps-row">
-            <h3>Can I use it for Marmite chicken?</h3>
-            <p>Yes. That is one of its core applications, at home and in restaurant kitchens across Malaysia.</p>
+          <div class="ulp-path reveal reveal-d2">
+            <h3>Manufacturers</h3>
+            <p>Bulk supply, full documentation.</p>
+            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20discuss%20UMAMITE%20in%20bulk." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_b2b">WhatsApp</a>
           </div>
-          <div class="apps-row">
-            <h3>Do you supply in bulk?</h3>
-            <p>Yes. Restaurants, manufacturers and wholesale buyers are supplied directly, and distribution partnerships are open. Tell us your volumes and we will structure the right arrangement.</p>
+          <div class="ulp-path reveal reveal-d3">
+            <h3>Distributors &amp; agents</h3>
+            <p>The shelf is open. Be first.</p>
+            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27m%20interested%20in%20distributing%20UMAMITE." class="btn btn--light" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_distributor">WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="lp-section section--deep">
+    <section class="lp-section section--deep ulp-final">
       <div class="container">
-        <div class="enquiry-panel reveal">
-          <div>
-            <h2 class="t-title">The umami stays on the shelf.</h2>
-            <p>Retail availability &middot; Restaurant supply &middot; Bulk &amp; wholesale &middot; Distributor, stockist &amp; agent opportunities</p>
-          </div>
-          <div class="actions">
-            <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-               class="btn btn--primary btn--lg" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_footer">WhatsApp Our Sales Team</a>
-            <a href="#lp-name" class="btn btn--light btn--lg" onclick="document.querySelector('.lead-form').scrollIntoView({behavior:'smooth'}); return false;">Back to the Form</a>
-          </div>
-        </div>
+        <h2 class="t-display reveal">One message. Umami settled.</h2>
+        <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
+           class="btn btn--primary btn--lg reveal reveal-d1" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_footer">WhatsApp Us Now</a>
+        <p class="ulp-final-phone reveal reveal-d2">Prefer to call? <a href="tel:+60122556701">+60 12-255 6701</a></p>
       </div>
     </section>
 
   </main>
 
-  <!-- Sticky mobile CTA -->
+  <!-- Sticky mobile CTA: single action -->
   <div class="lp-sticky-cta">
     <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-       target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_sticky">WhatsApp Us</a>
-    <a href="#lp-name" class="alt" onclick="document.querySelector('.lead-form').scrollIntoView({behavior:'smooth'}); return false;">Enquire Now</a>
+       target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="lp_umamite_sticky" style="grid-column: 1 / -1;">WhatsApp Us Now</a>
   </div>
-
-  <!-- Floating WhatsApp (desktop) -->
-  <a href="https://wa.me/60122556701?text=Hello%20Tropicor%2C%20I%27d%20like%20to%20enquire%20about%20UMAMITE."
-     class="wa-fab" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" data-track-label="lp_umamite_fab">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-  </a>
 
   <script src="../js/site.js"></script>
 </body>
