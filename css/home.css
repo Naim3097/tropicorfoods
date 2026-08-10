@@ -233,6 +233,7 @@
     display: flex;
     gap: 0.85rem;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--gutter);
     margin-inline: calc(-1 * var(--gutter));
@@ -403,6 +404,7 @@
     display: flex;
     gap: 0.85rem;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--gutter);
     margin-inline: calc(-1 * var(--gutter));

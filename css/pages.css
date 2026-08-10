@@ -227,6 +227,112 @@
 @media (max-width: 63.99em) { .quote-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 39.99em) { .quote-grid { grid-template-columns: 1fr; } }
 
+/* ---------- INSIGHTS / ARTICLES ---------- */
+.article-body {
+  max-width: 46rem;
+}
+.article-body h2 {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+.article-body h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.article-body p { margin-bottom: 1.1rem; color: var(--text); }
+.article-body p.lede { font-size: var(--fs-lead); color: var(--muted); line-height: 1.65; }
+.article-body ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.article-body ul li { padding-block: 0.2rem; }
+.article-body a { color: var(--teal-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: var(--teal-dark); }
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+/* In-article image figure. Ships as a dashed placeholder slot until
+   the product photo arrives; swap the .media-slot for an <img> with
+   the same footprint. 16:10 on desktop, 4:3 on phones. */
+.article-figure {
+  margin: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+}
+.article-figure .media-slot {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+}
+.article-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+}
+.article-figure figcaption {
+  margin-top: 0.65rem;
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (max-width: 39.99em) {
+  .article-figure .media-slot,
+  .article-figure img { aspect-ratio: 4 / 3; }
+}
+
+/* Inline CTA band inside an article */
+.article-cta {
+  background: var(--teal-deep);
+  color: #fff;
+  border-radius: var(--r-lg);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin: clamp(2rem, 4vw, 3rem) 0;
+}
+.article-cta h3 { font-family: var(--font-display); font-size: var(--fs-subtitle); font-weight: 600; margin: 0 0 0.5rem; }
+.article-cta p { color: rgba(255, 255, 255, 0.85); margin-bottom: 1.25rem; }
+.article-cta .actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+@media (max-width: 39.99em) { .article-cta .actions .btn { width: 100%; } }
+
+/* Insights index cards */
+.insight-card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -24px rgba(26, 43, 39, 0.25);
+}
+.insight-card h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 0.6rem;
+}
+.insight-card p { margin-top: 0.6rem; font-size: var(--fs-small); color: var(--muted); }
+.insight-card .link-line { margin-top: 1.25rem; color: var(--teal-deep); }
+
 /* ---------- CONTACT ---------- */
 .contact-grid {
   display: grid;

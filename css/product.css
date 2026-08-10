@@ -61,9 +61,11 @@
 .product-hero-media {
   overflow: hidden;
   border-radius: var(--r-lg);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   background: var(--paper-deep);
 }
+/* Tall variant for portrait packshots (e.g. the Umamite jar) */
+.product-hero-media--tall { aspect-ratio: 4 / 5; }
 .product-hero-media img {
   width: 100%; height: 100%;
   object-fit: cover;
