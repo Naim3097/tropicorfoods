@@ -252,17 +252,20 @@ em, .accent-italic {
 .btn--outline::before { display: none; }
 @media (prefers-reduced-motion: reduce) { .btn::before { display: none; } }
 
-/* Text link — plain semibold text, no underline, no decoration.
-   Kept on one line so it never wraps awkwardly beside headings. */
+/* Text link — plain semibold text, no underline, no decoration. */
 .link-line {
   display: inline-block;
   font-weight: 600;
   font-size: var(--fs-small);
   letter-spacing: 0.02em;
-  white-space: nowrap;
   transition: opacity 0.25s;
 }
 .link-line:hover { opacity: 0.7; }
+/* Beside section headings, keep the link on one line; long in-content
+   links must stay free to wrap on phones or they force overflow. */
+.categories-head .link-line,
+.list-head .link-line,
+.related-head .link-line { white-space: nowrap; }
 
 /* ============ HEADER ============ */
 .site-header {
