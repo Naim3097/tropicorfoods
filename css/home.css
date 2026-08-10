@@ -319,7 +319,7 @@
 }
 @media (max-width: 63.99em) {
   .umamite-card { grid-template-columns: 1fr; }
-  .umamite-media { min-height: 0; aspect-ratio: 16 / 10; }
+  .umamite-media { min-height: 0; aspect-ratio: 4 / 3; }
 }
 @media (max-width: 39.99em) {
   .umamite-actions .btn { width: 100%; }
