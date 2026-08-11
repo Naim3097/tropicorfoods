@@ -621,7 +621,7 @@ em, .accent-italic {
 .index-row:hover .index-title { color: var(--teal-deep); }
 .index-row .index-sub {
   margin-top: 0.35rem;
-  font-size: var(--fs-small);
+  font-size: 1.05rem;
   color: var(--muted);
   max-width: 46rem;
 }
@@ -928,6 +928,7 @@ em, .accent-italic {
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
+.film-row--3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 63.99em) { .film-row { grid-template-columns: 1fr; } }
 
 /* Placeholder tile for media still to come */
