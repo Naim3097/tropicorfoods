@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/insights/marmite-alternative-malaysia-umamite",
+      "destination": "/insights/halal-yeast-extract-spread-malaysia",
+      "permanent": true
+    }
+  ]
 }

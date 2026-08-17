@@ -1,7 +1,30 @@
 # Tropicor Foods — Blog & SEO Content Strategy
 ### Initial 5-Article Cluster · Research & Rationale · August 2026
 
-> Status: **for approval**. No articles have been written yet. On approval, writing proceeds in the order recommended below.
+> Status: **all five articles published.** This document is the internal research record and is excluded from the published site via `.vercelignore`.
+
+---
+
+## 0. Naming policy (August 2026) — READ FIRST
+
+Two client instructions override anything written further down this document:
+
+**1. The competitor brand name does not appear on the Tropicor website.** Not in visible copy, headings, title tags, meta descriptions, structured data, alt text, URLs or image filenames. This is a trademark-risk decision, not an SEO one. The research below still names the brand because it is the historical record of *why* this opportunity exists; that research remains valid, the on-site execution changed.
+
+Search intent is captured indirectly instead, through the category terms: `yeast extract spread malaysia`, `halal yeast extract`, `yeast extract malaysia`, `yeast extract supplier / bulk`, plus cooking-application and alternative-phrased long tail that never names a brand. Article 1 was rewritten and moved to `/insights/halal-yeast-extract-spread-malaysia` with a 301 from the old slug.
+
+The dish formerly referred to by brand name is written as **"sticky umami chicken"** throughout the site.
+
+**2. No country-of-origin manufacturing claim for UMAMITE.** Only part of the blending, finishing and packing happens in Malaysia, so "made in Malaysia", "manufactured in Malaysia" and "Malaysian-made" must not be used in relation to UMAMITE. Approved wording:
+
+- Developed in Malaysia
+- Finished and packed in Malaysia
+- A FEEGOH product by Tropicor Foods, a Malaysian food company
+- Inspired by Asian Umami
+
+The Malaysian association is still used freely for SEO and positioning; only the manufacturing claim is off limits. This restriction is UMAMITE-specific: the seasonings, fruit and ingredient ranges keep their existing origin wording.
+
+**Paid search is a separate question.** These restrictions apply to the website. Keyword *bidding* on competitor terms remains available in Google Ads, subject to Google's trademark policy, which permits bidding but restricts the brand name inside ad text. Keep the name out of ad copy.
 
 ---
 
@@ -61,6 +84,8 @@ Articles 1 & 4 build **yeast-extract/umami topical authority** (the Umamite moat
 ## 3. The five articles
 
 ### Article 1 — UMAMITE (priority: publish first; also the SEM landing page)
+
+> **Superseded by section 0.** As published, this article is titled *"Halal Yeast Extract Spread in Malaysia: UMAMITE by FEEGOH"*, lives at `/insights/halal-yeast-extract-spread-malaysia`, and targets `halal yeast extract spread` / `yeast extract spread malaysia` / `yeast extract malaysia` as primaries. The brand-name keywords in the table below are retained as research and remain usable for **paid bidding only**, never in on-site copy or ad text. The FAQ block carries the alternative-intent query in brand-free form: *"What can I use if my usual yeast extract spread is no longer on the shelf?"*
 
 | Field | Detail |
 |---|---|
