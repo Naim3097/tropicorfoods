@@ -92,6 +92,12 @@
       .ulp-facts { grid-template-columns: 1fr; gap: 1.25rem; }
       .ulp-paths { grid-template-columns: 1fr 1fr; }
     }
+    /* Phones: the hero crops to a tall frame, which pushes the jar off the
+       left edge. Pull the focal point left so it sits in shot up top, in the
+       space above the headline. */
+    @media (max-width: 47.99em) {
+      .ulp-hero-media img { object-position: 22% center; }
+    }
     @media (max-width: 39.99em) {
       .ulp-paths { grid-template-columns: 1fr; }
       .ulp-cta-row .btn, .ulp-final .btn { width: 100%; }
