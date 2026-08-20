@@ -68,11 +68,47 @@ This is the cost of the risk decision, not a fault in the setup. Mitigations tha
 
 ---
 
-## Tracking still to wire before launch
+## Tracking: built and verified, waiting only on the IDs
 
-- GA4 Measurement ID: still the `G-XXXXXXXXXX` placeholder sitewide.
-- Google Ads conversion tag (`AW-`) plus a conversion action for the WhatsApp click, on `/lp/umamite`.
-- The WhatsApp CTAs already emit `data-track="whatsapp_click"` with per-segment `data-track-label` values (`lp_umamite_hero`, `_b2c`, `_horeca`, `_b2b`, `_distributor`, `_sticky`, `_fab`), so segment-level conversion reporting works as soon as the IDs are live.
+The event layer is complete and tested. Every CTA on `/lp/umamite` already fires
+a GA4 event through the handler in `js/site.js`. Verified on the live page: 11
+CTAs, 11 events, each with its own segment label. Nothing reaches GA4 today only
+because the Measurement ID is still a placeholder.
+
+**To go live, replace `G-XXXXXXXXXX` in the page `<head>`** — it appears twice per
+page, once in the `gtag/js?id=` script URL and once in the `gtag('config', ...)`
+call. Do it in `lp/umamite.html` at minimum; sitewide if you want the whole site
+reporting. No other change is needed: `track()` in `js/site.js` no-ops safely
+while `gtag` is undefined, then starts sending the moment a real ID is present.
+
+**Events that will appear:**
+
+| Event | Fires on |
+|---|---|
+| `whatsapp_click` | every WhatsApp CTA (9 on the LP) |
+| `tel_click` | Call Us buttons (header, final section) |
+| `email_click` | mailto links (product pages) |
+| `generate_lead` | form submit (`form[data-track-form]`, OEM LP) |
+
+Each carries `link_text` (the segment label) and `page_path`. The LP's labels:
+
+`lp_umamite_header` · `lp_umamite_hero` · `lp_umamite_b2c` · `lp_umamite_horeca`
+· `lp_umamite_b2b` · `lp_umamite_distributor` · `lp_umamite_footer` ·
+`lp_umamite_call` · `lp_umamite_sticky` · `lp_umamite_fab`
+
+That means you can see not just *that* someone enquired, but whether they came in
+as a home cook, a restaurant, a manufacturer or a distributor — which is the
+number that should steer budget between the campaigns above.
+
+**In GA4 after the ID is in:** mark `whatsapp_click` (and `tel_click` if wanted)
+as a Key Event, then import it into Google Ads as a conversion. Add the `AW-`
+conversion snippet to the same `<head>` if you prefer tracking conversions in Ads
+directly rather than importing.
+
+**Already automatic**, no work needed: GA4 enhanced measurement covers page
+views, scroll depth and outbound clicks once the property is live. The custom
+events above exist to add the segment detail that enhanced measurement cannot
+infer on its own.
 
 ---
 
