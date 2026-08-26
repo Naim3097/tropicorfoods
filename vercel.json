@@ -6,6 +6,27 @@
       "source": "/insights/marmite-alternative-malaysia-umamite",
       "destination": "/insights/halal-yeast-extract-spread-malaysia",
       "permanent": true
-    }
+    },
+
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/about-tropicor-foods", "destination": "/about", "permanent": true },
+    { "source": "/about-tropicor", "destination": "/about", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/our-products", "destination": "/products", "permanent": true },
+    { "source": "/product", "destination": "/products", "permanent": true },
+    { "source": "/seasonings-pre-mix", "destination": "/seasonings", "permanent": true },
+    { "source": "/seasoning", "destination": "/seasonings", "permanent": true },
+    { "source": "/fruit-product", "destination": "/fruit-products", "permanent": true },
+    { "source": "/food-ingredient", "destination": "/food-ingredients", "permanent": true },
+    { "source": "/customisation-and-oem", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/customization-oem", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/oem", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/private-label", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/blog", "destination": "/insights", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/insights", "permanent": true },
+    { "source": "/news", "destination": "/insights", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/index.php", "destination": "/", "permanent": true },
+    { "source": "/testimonial", "destination": "/testimonials", "permanent": true }
   ]
 }
