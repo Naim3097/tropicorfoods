@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /lp/
+
+# /lp/ pages are ads landing pages and carry their own noindex tag.
+# They are deliberately NOT disallowed here: blocking them would stop
+# crawlers reading that noindex, which is what actually keeps them out
+# of search results. Crawling is allowed; indexing is refused per page.
 
 Sitemap: https://www.tropicorfoods.com/sitemap.xml
