@@ -8,6 +8,13 @@
       "permanent": true
     },
 
+    { "source": "/fruits", "destination": "/fruit-products", "permanent": true },
+    { "source": "/fruit", "destination": "/fruit-products", "permanent": true },
+    { "source": "/services", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/service", "destination": "/customisation-oem", "permanent": true },
+    { "source": "/seasonings-premix", "destination": "/seasonings", "permanent": true },
+    { "source": "/seasonings-pre-mix", "destination": "/seasonings", "permanent": true },
+
     { "source": "/about-us", "destination": "/about", "permanent": true },
     { "source": "/about-tropicor-foods", "destination": "/about", "permanent": true },
     { "source": "/about-tropicor", "destination": "/about", "permanent": true },
