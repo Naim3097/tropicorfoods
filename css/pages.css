@@ -393,3 +393,29 @@
   font-size: var(--fs-meta);
   color: var(--muted);
 }
+
+/* ---------- ABOUT: OUR TEAM ----------
+   One photo is portrait (3:4), the other landscape (4:3). The column ratio
+   below makes them render at matching heights side by side, so neither has to
+   be cropped and nobody gets cut out of frame. */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.78fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+}
+.team-shot { margin: 0; }
+.team-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+}
+
+/* Tablet and phone: stack full width, natural aspect, no cropping */
+@media (max-width: 63.99em) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
