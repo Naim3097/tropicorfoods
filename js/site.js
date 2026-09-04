@@ -86,8 +86,22 @@
      data-track="event_name". Links to WhatsApp / tel: / mailto:
      are tracked automatically even without data-track.       */
   function track(eventName, params) {
+    var payload = params || {};
+
     if (typeof window.gtag === 'function') {
-      window.gtag('event', eventName, params || {});
+      window.gtag('event', eventName, payload);
+    }
+
+    /* Mirror the same action into dataLayer so Google Tag Manager can trigger
+       on it. Used on /lp/umamite for Google Ads conversions. GA4 is fired by
+       gtag above and must NOT also be fired from GTM, or every action counts
+       twice. Harmless on pages with no GTM container. */
+    if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+      var dl = { event: eventName };
+      for (var k in payload) {
+        if (Object.prototype.hasOwnProperty.call(payload, k)) dl[k] = payload[k];
+      }
+      window.dataLayer.push(dl);
     }
   }
 
