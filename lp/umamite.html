@@ -17,10 +17,22 @@
   <link rel="stylesheet" href="../css/theme.css">
   <link rel="stylesheet" href="../css/landing.css">
 
+  <!-- Google Tag Manager — THIS PAGE ONLY (ads landing page).
+       Scope: Google Ads conversion and remarketing tags.
+
+       DO NOT add a GA4 configuration tag inside this container. GA4 already
+       runs on this page via the gtag snippet below, and firing it from both
+       places double-counts every pageview and every enquiry click. -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P9836SQR');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- GA4 — live. Every CTA on this page fires whatsapp_click / tel_click via
        js/site.js, each tagged with a per-segment data-track-label. See
-       SEM-BRIEF.md for the event list. Add the AW- conversion snippet here
-       when tracking conversions in Google Ads directly. -->
+       SEM-BRIEF.md for the event list. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSXG8VE4YC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -109,6 +121,11 @@
   </style>
 </head>
 <body>
+
+  <!-- Google Tag Manager (noscript) — must stay immediately after <body> -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9836SQR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Minimal header: dual brand, WhatsApp only -->
   <header class="lp-header">
